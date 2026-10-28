@@ -54,7 +54,7 @@ export function getSupabase(): SupabaseClient {
     throw new DatabaseError("Missing environment variable: NEXT_PUBLIC_SUPABASE_URL", "CONFIG_ERROR");
   }
 
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
   if (!key) {
     throw new DatabaseError("Missing environment variable: SUPABASE_SERVICE_ROLE_KEY", "CONFIG_ERROR");
   }
