@@ -477,6 +477,21 @@ export default function HomePage() {
                       🛡️ {alert.corroboration_badge}
                     </span>
                   )}
+                  {alert.recommended_actions && alert.recommended_actions.length > 0 && (
+                    <span
+                      style={{
+                        background: "rgba(168, 85, 247, 0.15)",
+                        color: "#c084fc",
+                        border: "1px solid rgba(168, 85, 247, 0.3)",
+                        padding: "2px 8px",
+                        borderRadius: "12px",
+                        fontSize: "0.72rem",
+                        fontWeight: 600,
+                      }}
+                    >
+                      ⚡ Response Playbook
+                    </span>
+                  )}
                 </div>
 
                 <p style={{ margin: "0 0 0.6rem 0", color: "#cbd5e1", fontSize: "0.9rem", lineHeight: "1.5" }}>
@@ -565,6 +580,219 @@ export default function HomePage() {
                 </button>
               </div>
 
+              {/* CRITICAL ALERT TOP HIGHLIGHT: If severity is critical, render Playbook right at the top */}
+              {selectedAlert.severity === "critical" &&
+                ((selectedAlert.recommended_actions && selectedAlert.recommended_actions.length > 0) ||
+                  (selectedAlert.official_links && selectedAlert.official_links.length > 0)) && (
+                  <div
+                    style={{
+                      marginBottom: "1.5rem",
+                      background: "rgba(220, 38, 38, 0.08)",
+                      border: "2px solid #ef4444",
+                      borderRadius: "8px",
+                      padding: "1.2rem",
+                      boxShadow: "0 0 24px rgba(239, 68, 68, 0.25)",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        background: "#dc2626",
+                        color: "#fff",
+                        padding: "6px 12px",
+                        borderRadius: "6px",
+                        fontSize: "0.8rem",
+                        fontWeight: 800,
+                        letterSpacing: "0.05em",
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      <span>🚨 CRITICAL INCIDENT RESPONSE PROTOCOL — IMMEDIATE ATTENTION</span>
+                    </div>
+
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem" }}>
+                      <h4 style={{ color: "#f87171", margin: 0, fontSize: "1rem", fontWeight: 700 }}>
+                        🛡️ What To Do — Operational Response Playbook
+                      </h4>
+                      {selectedAlert.category && (
+                        <span
+                          style={{
+                            fontSize: "0.72rem",
+                            background: "#1e293b",
+                            color: "#94a3b8",
+                            padding: "2px 8px",
+                            borderRadius: "4px",
+                            textTransform: "uppercase",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {selectedAlert.category.replace("_", " ")}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Analyst Actions */}
+                    {selectedAlert.recommended_actions &&
+                      selectedAlert.recommended_actions.filter((a) => a.audience === "analyst").length > 0 && (
+                        <div style={{ marginBottom: "1rem" }}>
+                          <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "#93c5fd", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.5rem" }}>
+                            🎯 Intelligence & Security Analyst Actions
+                          </div>
+                          <div style={{ display: "grid", gap: "0.5rem" }}>
+                            {selectedAlert.recommended_actions
+                              .filter((a) => a.audience === "analyst")
+                              .map((item, idx) => (
+                                <div
+                                  key={idx}
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "0.6rem",
+                                    background: "#0f172a",
+                                    border: "1px solid #1e293b",
+                                    padding: "0.6rem 0.8rem",
+                                    borderRadius: "6px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      background:
+                                        item.priority === "immediate"
+                                          ? "#dc2626"
+                                          : item.priority === "high"
+                                          ? "#ea580c"
+                                          : "#0284c7",
+                                      color: "#fff",
+                                      fontSize: "0.65rem",
+                                      fontWeight: 700,
+                                      padding: "2px 6px",
+                                      borderRadius: "3px",
+                                      textTransform: "uppercase",
+                                      whiteSpace: "nowrap",
+                                      marginTop: "2px",
+                                    }}
+                                  >
+                                    {item.priority}
+                                  </span>
+                                  <span style={{ fontSize: "0.85rem", color: "#e2e8f0", lineHeight: "1.4" }}>
+                                    {item.action}
+                                  </span>
+                                </div>
+                              ))}
+                          </div>
+                        </div>
+                      )}
+
+                    {/* Civilian Safety Steps (ONLY if present) */}
+                    {selectedAlert.recommended_actions &&
+                      selectedAlert.recommended_actions.filter((a) => a.audience === "civilian").length > 0 && (
+                        <div
+                          style={{
+                            marginBottom: "1rem",
+                            background: "rgba(245, 158, 11, 0.08)",
+                            border: "1px solid rgba(245, 158, 11, 0.3)",
+                            borderRadius: "6px",
+                            padding: "0.8rem",
+                          }}
+                        >
+                          <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "#fbbf24", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.5rem" }}>
+                            ⚠️ Civilian Public Safety Steps
+                          </div>
+                          <div style={{ display: "grid", gap: "0.4rem" }}>
+                            {selectedAlert.recommended_actions
+                              .filter((a) => a.audience === "civilian")
+                              .map((item, idx) => (
+                                <div
+                                  key={idx}
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "0.6rem",
+                                    background: "#0f172a",
+                                    border: "1px solid rgba(245, 158, 11, 0.2)",
+                                    padding: "0.5rem 0.7rem",
+                                    borderRadius: "4px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      background: item.priority === "immediate" ? "#dc2626" : "#f59e0b",
+                                      color: "#fff",
+                                      fontSize: "0.65rem",
+                                      fontWeight: 700,
+                                      padding: "2px 6px",
+                                      borderRadius: "3px",
+                                      textTransform: "uppercase",
+                                      whiteSpace: "nowrap",
+                                      marginTop: "2px",
+                                    }}
+                                  >
+                                    {item.priority}
+                                  </span>
+                                  <span style={{ fontSize: "0.85rem", color: "#fef3c7", lineHeight: "1.4" }}>
+                                    {item.action}
+                                  </span>
+                                </div>
+                              ))}
+                          </div>
+                        </div>
+                      )}
+
+                    {/* Official Verified Links */}
+                    {selectedAlert.official_links && selectedAlert.official_links.length > 0 && (
+                      <div style={{ marginBottom: "0.8rem" }}>
+                        <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "#38bdf8", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.4rem" }}>
+                          🏛️ Verified Official Authority Portals
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                          {selectedAlert.official_links.map((link, idx) => (
+                            <a
+                              key={idx}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: "0.3rem",
+                                background: "#1e293b",
+                                border: "1px solid #334155",
+                                color: "#38bdf8",
+                                padding: "4px 10px",
+                                borderRadius: "4px",
+                                fontSize: "0.8rem",
+                                textDecoration: "none",
+                                fontWeight: 500,
+                              }}
+                            >
+                              <span>{link.name}</span>
+                              <span style={{ fontSize: "0.75rem" }}>↗</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Safety Disclaimer */}
+                    <div
+                      style={{
+                        marginTop: "0.8rem",
+                        padding: "0.6rem 0.8rem",
+                        background: "rgba(100, 116, 139, 0.15)",
+                        borderLeft: "3px solid #94a3b8",
+                        borderRadius: "4px",
+                        fontSize: "0.75rem",
+                        color: "#94a3b8",
+                        fontStyle: "italic",
+                      }}
+                    >
+                      ⚠️ <strong>Notice:</strong> Guidance only — always follow your local authorities' instructions.
+                    </div>
+                  </div>
+                )}
+
               {/* Summary */}
               <div style={{ marginBottom: "1.2rem" }}>
                 <h4 style={{ color: "#38bdf8", margin: "0 0 0.4rem 0", fontSize: "0.9rem" }}>AI Executive Summary</h4>
@@ -584,6 +812,200 @@ export default function HomePage() {
                   </p>
                 </div>
               )}
+
+              {/* STANDARD PLAYBOOK (For Non-Critical Alerts) */}
+              {selectedAlert.severity !== "critical" &&
+                ((selectedAlert.recommended_actions && selectedAlert.recommended_actions.length > 0) ||
+                  (selectedAlert.official_links && selectedAlert.official_links.length > 0)) && (
+                  <div
+                    style={{
+                      marginBottom: "1.5rem",
+                      background: "#131c31",
+                      border: "1px solid #3b82f6",
+                      borderRadius: "8px",
+                      padding: "1.2rem",
+                    }}
+                  >
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem" }}>
+                      <h4 style={{ color: "#38bdf8", margin: 0, fontSize: "1rem", fontWeight: 700 }}>
+                        🛡️ What To Do — Tactical Response Playbook
+                      </h4>
+                      {selectedAlert.category && (
+                        <span
+                          style={{
+                            fontSize: "0.72rem",
+                            background: "#1e293b",
+                            color: "#94a3b8",
+                            padding: "2px 8px",
+                            borderRadius: "4px",
+                            textTransform: "uppercase",
+                            fontWeight: 600,
+                          }}
+                        >
+                          {selectedAlert.category.replace("_", " ")}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Analyst Actions */}
+                    {selectedAlert.recommended_actions &&
+                      selectedAlert.recommended_actions.filter((a) => a.audience === "analyst").length > 0 && (
+                        <div style={{ marginBottom: "1rem" }}>
+                          <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "#93c5fd", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.5rem" }}>
+                            🎯 Intelligence & Security Analyst Actions
+                          </div>
+                          <div style={{ display: "grid", gap: "0.5rem" }}>
+                            {selectedAlert.recommended_actions
+                              .filter((a) => a.audience === "analyst")
+                              .map((item, idx) => (
+                                <div
+                                  key={idx}
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "0.6rem",
+                                    background: "#0f172a",
+                                    border: "1px solid #1e293b",
+                                    padding: "0.6rem 0.8rem",
+                                    borderRadius: "6px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      background:
+                                        item.priority === "immediate"
+                                          ? "#dc2626"
+                                          : item.priority === "high"
+                                          ? "#ea580c"
+                                          : "#0284c7",
+                                      color: "#fff",
+                                      fontSize: "0.65rem",
+                                      fontWeight: 700,
+                                      padding: "2px 6px",
+                                      borderRadius: "3px",
+                                      textTransform: "uppercase",
+                                      whiteSpace: "nowrap",
+                                      marginTop: "2px",
+                                    }}
+                                  >
+                                    {item.priority}
+                                  </span>
+                                  <span style={{ fontSize: "0.85rem", color: "#e2e8f0", lineHeight: "1.4" }}>
+                                    {item.action}
+                                  </span>
+                                </div>
+                              ))}
+                          </div>
+                        </div>
+                      )}
+
+                    {/* Civilian Safety Steps (ONLY if present) */}
+                    {selectedAlert.recommended_actions &&
+                      selectedAlert.recommended_actions.filter((a) => a.audience === "civilian").length > 0 && (
+                        <div
+                          style={{
+                            marginBottom: "1rem",
+                            background: "rgba(245, 158, 11, 0.08)",
+                            border: "1px solid rgba(245, 158, 11, 0.3)",
+                            borderRadius: "6px",
+                            padding: "0.8rem",
+                          }}
+                        >
+                          <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "#fbbf24", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.5rem" }}>
+                            ⚠️ Civilian Public Safety Steps
+                          </div>
+                          <div style={{ display: "grid", gap: "0.4rem" }}>
+                            {selectedAlert.recommended_actions
+                              .filter((a) => a.audience === "civilian")
+                              .map((item, idx) => (
+                                <div
+                                  key={idx}
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "0.6rem",
+                                    background: "#0f172a",
+                                    border: "1px solid rgba(245, 158, 11, 0.2)",
+                                    padding: "0.5rem 0.7rem",
+                                    borderRadius: "4px",
+                                  }}
+                                >
+                                  <span
+                                    style={{
+                                      background: item.priority === "immediate" ? "#dc2626" : "#f59e0b",
+                                      color: "#fff",
+                                      fontSize: "0.65rem",
+                                      fontWeight: 700,
+                                      padding: "2px 6px",
+                                      borderRadius: "3px",
+                                      textTransform: "uppercase",
+                                      whiteSpace: "nowrap",
+                                      marginTop: "2px",
+                                    }}
+                                  >
+                                    {item.priority}
+                                  </span>
+                                  <span style={{ fontSize: "0.85rem", color: "#fef3c7", lineHeight: "1.4" }}>
+                                    {item.action}
+                                  </span>
+                                </div>
+                              ))}
+                          </div>
+                        </div>
+                      )}
+
+                    {/* Official Verified Links */}
+                    {selectedAlert.official_links && selectedAlert.official_links.length > 0 && (
+                      <div style={{ marginBottom: "0.8rem" }}>
+                        <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "#38bdf8", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "0.4rem" }}>
+                          🏛️ Verified Official Authority Portals
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                          {selectedAlert.official_links.map((link, idx) => (
+                            <a
+                              key={idx}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: "0.3rem",
+                                background: "#1e293b",
+                                border: "1px solid #334155",
+                                color: "#38bdf8",
+                                padding: "4px 10px",
+                                borderRadius: "4px",
+                                fontSize: "0.8rem",
+                                textDecoration: "none",
+                                fontWeight: 500,
+                              }}
+                            >
+                              <span>{link.name}</span>
+                              <span style={{ fontSize: "0.75rem" }}>↗</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Safety Disclaimer */}
+                    <div
+                      style={{
+                        marginTop: "0.8rem",
+                        padding: "0.6rem 0.8rem",
+                        background: "rgba(100, 116, 139, 0.15)",
+                        borderLeft: "3px solid #94a3b8",
+                        borderRadius: "4px",
+                        fontSize: "0.75rem",
+                        color: "#94a3b8",
+                        fontStyle: "italic",
+                      }}
+                    >
+                      ⚠️ <strong>Notice:</strong> Guidance only — always follow your local authorities' instructions.
+                    </div>
+                  </div>
+                )}
 
               {/* Timeline Events */}
               {selectedAlert.timeline_events && selectedAlert.timeline_events.length > 0 && (

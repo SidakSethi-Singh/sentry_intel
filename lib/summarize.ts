@@ -5,6 +5,8 @@
  * - Alert: { id, article_id, severity, score, summary, sources[], timeline_events[], created_at, score_justification?, corroboration_count?, corroboration_badge? }
  */
 
+import { getRecommendedActions } from "./playbooks.ts";
+
 export interface Article {
   id: string;
   title: string;
@@ -38,6 +40,17 @@ export interface AlertEntity {
   category: "actor" | "location" | "asset" | "threat";
 }
 
+export interface RecommendedAction {
+  action: string;
+  audience: "analyst" | "civilian";
+  priority: "immediate" | "high" | "routine";
+}
+
+export interface OfficialLink {
+  name: string;
+  url: string;
+}
+
 export interface Alert {
   id: string;
   article_id: string;
@@ -55,6 +68,11 @@ export interface Alert {
   related_article_ids?: string[];
   entities?: AlertEntity[];
   location?: string;
+
+  // Response Playbook Fields:
+  category?: "cyber" | "natural_disaster" | "border_security" | "maritime" | "defence_tech" | "space" | "general";
+  recommended_actions?: RecommendedAction[];
+  official_links?: OfficialLink[];
 }
 
 /**
@@ -560,6 +578,7 @@ export async function createAlertFromArticle(article: Article): Promise<Alert> {
   const { summary, timeline_events, sources } = await summarizeArticle(article);
   const { score, severity, justification } = calculateThreatAssessment(article.text, article.title, 1);
   const { entities, location } = extractEntitiesAndLocation(article.text, article.title);
+  const playbook = getRecommendedActions({ summary, title: article.title, text: article.text, severity, score });
 
   return {
     id: `alert-${article.id}`,
@@ -576,6 +595,9 @@ export async function createAlertFromArticle(article: Article): Promise<Alert> {
     related_article_ids: [article.id],
     entities,
     location,
+    category: playbook.category,
+    recommended_actions: playbook.recommended_actions,
+    official_links: playbook.official_links,
   };
 }
 
@@ -657,6 +679,7 @@ export async function corroborateArticles(articles: Article[]): Promise<Alert> {
 
   const { score, severity, justification } = calculateThreatAssessment(combinedText, combinedTitle, sourceCount);
   const { entities, location } = extractEntitiesAndLocation(combinedText, combinedTitle);
+  const playbook = getRecommendedActions({ summary, title: combinedTitle, text: combinedText, severity, score });
 
   const alertId = primaryArticle.incident_id ? `alert-${primaryArticle.incident_id}` : `alert-${primaryArticle.id}`;
 
@@ -675,6 +698,9 @@ export async function corroborateArticles(articles: Article[]): Promise<Alert> {
     related_article_ids: articles.map((a) => a.id),
     entities,
     location,
+    category: playbook.category,
+    recommended_actions: playbook.recommended_actions,
+    official_links: playbook.official_links,
   };
 }
 

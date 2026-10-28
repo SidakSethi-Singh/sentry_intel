@@ -171,5 +171,89 @@
     "url": "https://nccc.gov.in/threat-bulletin/maritime-logistics-cyber-oct26",
     "published_at": "2026-10-28T09:00:00Z",
     "text": "The National Cyber Coordination Centre (NCCC) issued an urgent threat bulletin on October 28 at 06:45 IST after detecting high-volume distributed denial-of-service (DDoS) barrages targeting automated container terminal operations at Jawaharlal Nehru Port and Chennai Port. Incoming traffic surges peaked at 850 gigabits per second alongside weaponized spear-phishing emails aimed at customs clearance clearance networks. Cloud mitigation providers and port IT security engineers rerouted traffic to scrubbing centers at 07:30 IST, averting cargo logistics bottlenecks. Threat intelligence agencies attributed the campaign to a known regional adversary attempting maritime supply chain disruption."
+  },
+  {
+    "id": "art-2026-013",
+    "incident_id": "inc-dark-vessel-lakshadweep",
+    "title": "Indian Coast Guard Intercepts Suspicious Dark Vessel Transmitting Covert Radio Telemetry off Lakshadweep",
+    "source": "Indian Coast Guard HQ",
+    "url": "https://indiancoastguard.gov.in/press-release/lakshadweep-dark-vessel-intercept",
+    "published_at": "2026-10-28T05:30:00Z",
+    "text": "Indian Coast Guard offshore patrol vessel ICGS Samarth intercepted an unflagged 65-meter trawler navigating without mandatory AIS broadcast transponders 45 nautical miles west of Minicoy Island on October 28 at 03:15 IST. Boarding parties discovered high-gain electronic listening antennas and commercial maritime satellite interception transceivers concealed within cargo holds. Six foreign crew members were detained for interrogation at 04:30 IST, and the vessel was escorted under armed guard to Kavaratti port for comprehensive technical intelligence examination."
+  },
+  {
+    "id": "art-2026-013b",
+    "incident_id": "inc-dark-vessel-lakshadweep",
+    "title": "Naval Intelligence Inspects Seized Electronics From Unflagged Vessel Intercepted in Arabian Sea",
+    "source": "Naval Staff Directorate",
+    "url": "https://indiannavy.nic.in/press-release/arabian-sea-intelligence-seizure",
+    "published_at": "2026-10-28T07:45:00Z",
+    "text": "Specialists from the Directorate of Naval Intelligence boarded the detained trawler at Kavaratti anchorage on October 28 at 06:00 IST to examine confiscated electronic equipment. Investigators reported finding frequency analysis software mapped to Indian Navy Western Fleet communication bands alongside hydrophone array sensors. Joint interrogation teams including the Coast Guard, Intelligence Bureau, and Navy confirmed heightened maritime surveillance patrols across sea lanes connecting the Arabian Sea to the central Indian Ocean."
+  },
+  {
+    "id": "art-2026-014",
+    "incident_id": "inc-gps-spoofing-border",
+    "title": "Aviation Authorities and Air Force Probe Coordinated GPS Spoofing Incidents Over Western Air Corridors",
+    "source": "Airports Authority of India",
+    "url": "https://aai.aero/press-release/gps-spoofing-western-corridor-warning",
+    "published_at": "2026-10-27T16:20:00Z",
+    "text": "The Airports Authority of India (AAI) in coordination with the Indian Air Force launched an urgent technical investigation on October 27 at 14:00 IST following reports from four commercial passenger airliners experiencing deceptive GPS positioning signals near the western border air corridor. Flight navigational computers indicated artificial position drift of up to 45 nautical miles within minutes. Air Traffic Control switched affected aircraft to ground-based VOR/DME terrestrial radio beacons at 14:40 IST to ensure navigational safety. Electronic intelligence aircraft were deployed to localize the hostile cross-border RF interference source."
+  },
+  {
+    "id": "art-2026-014b",
+    "incident_id": "inc-gps-spoofing-border",
+    "title": "IAF Electronic Warfare Units Trace High-Power GNSS Jammer Emitting Along International Boundary",
+    "source": "Western Air Command Desk",
+    "url": "https://indianairforce.nic.in/press-release/wac-gnss-interference-investigation",
+    "published_at": "2026-10-27T19:00:00Z",
+    "text": "Signals intelligence units attached to Western Air Command identified the origin of high-intensity GNSS spoofing signals on October 27 at 17:30 IST. Ground-based spectrum sensors and airborne EW suites narrowed down the emitter to a mobile military radar jamming platform stationed approximately 12 kilometers across the international border. A technical bulletin was transmitted to the Directorate General of Civil Aviation advising airline flight crews to cross-verify satellite coordinates with inertial navigation systems when transiting border waypoints."
+  },
+  {
+    "id": "art-2026-015",
+    "title": "DRDO and Strategic Forces Command Conduct Successful Extended-Range BrahMos Live-Fire Trial",
+    "source": "DRDO Press Bureau",
+    "url": "https://drdo.gov.in/press-release/brahmos-extended-range-flight-oct2026",
+    "published_at": "2026-10-26T11:00:00Z",
+    "text": "The Defence Research and Development Organisation (DRDO) alongside the Strategic Forces Command successfully test-fired an extended-range variant of the supersonic cruise missile BrahMos from a mobile autonomous launcher in the Andaman and Nicobar Islands on October 26 at 09:30 IST. The missile followed an intricate sea-skimming trajectory at Mach 2.8 and struck a designated maritime target ship with pinpoint accuracy at 09:44 IST. Senior defence officials noted that the upgraded indigenous seeker and extended 500-kilometer engagement envelope significantly elevate anti-access deterrence across vital maritime choke points."
+  },
+  {
+    "id": "art-2026-016",
+    "title": "Army Chinar Corps and NDRF Mobilize Disaster Relief Following Glacial Avalanche in Gurez Sector",
+    "source": "Chinar Corps Public Information",
+    "url": "https://indianarmy.nic.in/press-release/chinar-corps-gurez-avalanche-relief",
+    "published_at": "2026-10-28T08:15:00Z",
+    "text": "Troops from the Chinar Corps mobilized emergency disaster response units in the Gurez sector of Bandipora district on October 28 at 06:00 IST following a massive high-altitude glacial avalanche triggered by sudden blizzards. Army avalanche rescue dogs and specialized thermal sensing probes helped locate eight trapped civilian shepherds and 14 border road construction workers within two hours. Army ALH Dhruv helicopters evacuated three critically injured personnel to Srinagar military hospital at 08:00 IST. The Border Roads Organisation deployed heavy snow-cutters to reopen blocked transit routes."
+  },
+  {
+    "id": "art-2026-017",
+    "title": "CERT-In Issues Urgent Advisory After Neutralizing 'ShadowVault' Ransomware Infiltration Attempt",
+    "source": "CERT-In Threat Desk",
+    "url": "https://cert-in.org.in/advisories/CI-2026-0492-shadowvault-ransomware",
+    "published_at": "2026-10-28T10:30:00Z",
+    "text": "The Indian Computer Emergency Response Team (CERT-In) issued an alert on October 28 at 08:30 IST regarding an active cyber espionage malware family dubbed 'ShadowVault' targeting design networks of defence shipyards. The threat actor attempted privilege escalation through unpatched edge hypervisors to deploy data-encrypting payloads. Enterprise SOC teams detected suspicious PowerShell execution strings at 08:45 IST and isolated active endpoints before data exfiltration occurred. CERT-In recommended immediate credential resets and offline air-gap verifications for all defence public sector units."
+  },
+  {
+    "id": "art-2026-018",
+    "title": "INS Vikrant and INS Vikramaditya Lead Dual-Carrier Task Force Operations in Central Bay of Bengal",
+    "source": "Eastern Naval Command",
+    "url": "https://indiannavy.nic.in/press-release/dual-carrier-combat-exercise-bay-of-bengal",
+    "published_at": "2026-10-27T13:45:00Z",
+    "text": "The Indian Navy demonstrated multi-carrier power projection capabilities in the central Bay of Bengal during high-tempo fleet exercises involving indigenous aircraft carrier INS Vikrant and INS Vikramaditya on October 27 at 11:30 IST. Over 30 combat aircraft including MiG-29K fighters, MH-60R Seahawk helicopters, and Kamov-31 early warning platforms executed round-the-clock combat air patrols and simulated anti-surface missile strikes. Flag Officer Commanding Eastern Fleet highlighted that synchronized dual-carrier battle group operations ensure complete maritime domain dominance over key international sea lanes."
+  },
+  {
+    "id": "art-2026-019",
+    "title": "DRDO and Indian Army Successfully Test Satellite Quantum Key Distribution Over 300 Kilometers",
+    "source": "DRDO Space & Cyber Wing",
+    "url": "https://drdo.gov.in/press-release/quantum-key-distribution-satellite-test",
+    "published_at": "2026-10-26T15:00:00Z",
+    "text": "Scientists at the Defence Research and Development Organisation (DRDO) in collaboration with the Indian Army Signals Directorate achieved a landmark breakthrough in secure communications on October 26 at 13:00 IST by executing real-time Quantum Key Distribution (QKD) over a 300-kilometer free-space optical link between two military ground stations. Quantum bit error rates remained under 1.8 percent despite turbulent atmospheric conditions. Defence technologists confirmed that quantum-encrypted channels render tactical communications completely impervious to eavesdropping and cyber decryption."
+  },
+  {
+    "id": "art-2026-020",
+    "title": "Anti-Submarine Corvette INS Kavaratti Detects Unidentified Submersible Contact in Malacca Strait Approaches",
+    "source": "Andaman & Nicobar Command",
+    "url": "https://indiannavy.nic.in/press-release/anc-asw-submarine-contact-investigation",
+    "published_at": "2026-10-28T11:00:00Z",
+    "text": "Indigenous anti-submarine warfare corvette INS Kavaratti deployed bow-mounted active sonar arrays and towed passive sonar sensors on October 28 at 08:20 IST after detecting an unidentified diesel-electric submarine contact 90 nautical miles west of the Great Nicobar island channel. P-8I Neptune maritime patrol aircraft dropped sonobuoy barriers at 09:15 IST to triangulate acoustic signatures and track the submersible's eastward departure trajectory. Naval spokespersons stated that surveillance in the Six Degree Channel remains at peak intensity to monitor international submarine transit movements."
   }
 ]
