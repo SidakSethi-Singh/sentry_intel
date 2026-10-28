@@ -33,6 +33,11 @@ export interface SummarizeResult {
 
 export type AlertSeverity = "low" | "medium" | "high" | "critical";
 
+export interface AlertEntity {
+  name: string;
+  category: "actor" | "location" | "asset" | "threat";
+}
+
 export interface Alert {
   id: string;
   article_id: string;
@@ -48,6 +53,8 @@ export interface Alert {
   corroboration_count?: number;
   corroboration_badge?: string;
   related_article_ids?: string[];
+  entities?: AlertEntity[];
+  location?: string;
 }
 
 /**
@@ -460,9 +467,99 @@ export function calculateThreatAssessment(
 /**
  * Single-Article Alert Creator (Backward Compatible)
  */
+/**
+ * Extracts intelligence entities (actors, locations, assets) from text
+ */
+export function extractEntitiesAndLocation(text: string, title: string = ""): { entities: AlertEntity[]; location?: string } {
+  const combined = `${title} ${text}`;
+  const lower = combined.toLowerCase();
+  const entities: AlertEntity[] = [];
+  const seen = new Set<string>();
+
+  function add(name: string, category: "actor" | "location" | "asset" | "threat") {
+    if (!seen.has(name.toLowerCase())) {
+      seen.add(name.toLowerCase());
+      entities.push({ name, category });
+    }
+  }
+
+  // Locations
+  const locations: { term: string; name: string }[] = [
+    { term: "ladakh", name: "Eastern Ladakh" },
+    { term: "punjab", name: "Punjab" },
+    { term: "amritsar", name: "Amritsar" },
+    { term: "aden", name: "Gulf of Aden" },
+    { term: "odisha", name: "Odisha Coast" },
+    { term: "bengal", name: "Bay of Bengal" },
+    { term: "samba", name: "Samba Sector, Jammu" },
+    { term: "sikkim", name: "North Sikkim" },
+    { term: "gujarat", name: "Gujarat Coast" },
+    { term: "baramulla", name: "Baramulla, Kashmir" },
+    { term: "mumbai", name: "Arabian Sea, Mumbai" },
+    { term: "visakhapatnam", name: "Visakhapatnam" },
+    { term: "delhi", name: "New Delhi" },
+    { term: "yemen", name: "Yemen Offshore" },
+  ];
+
+  let primaryLocation: string | undefined = undefined;
+  for (const loc of locations) {
+    if (lower.includes(loc.term)) {
+      add(loc.name, "location");
+      if (!primaryLocation) primaryLocation = loc.name;
+    }
+  }
+
+  // Actors
+  const actors = [
+    { term: "air force", name: "Indian Air Force (IAF)" },
+    { term: "iaf", name: "Indian Air Force (IAF)" },
+    { term: "navy", name: "Indian Navy" },
+    { term: "coast guard", name: "Indian Coast Guard" },
+    { term: "drdo", name: "DRDO" },
+    { term: "cert-in", name: "CERT-In" },
+    { term: "bsf", name: "Border Security Force (BSF)" },
+    { term: "ndrf", name: "National Disaster Response Force (NDRF)" },
+    { term: "isro", name: "ISRO" },
+    { term: "dsa", name: "Defence Space Agency" },
+    { term: "marcos", name: "MARCOS Marine Commandos" },
+    { term: "nccc", name: "National Cyber Coordination Centre" },
+    { term: "chinar corps", name: "Indian Army Chinar Corps" },
+    { term: "northern command", name: "Indian Army Northern Command" },
+    { term: "quad", name: "Quad Naval Task Force" },
+    { term: "reliefweb", name: "ReliefWeb" },
+  ];
+  for (const act of actors) {
+    if (lower.includes(act.term)) {
+      add(act.name, "actor");
+    }
+  }
+
+  // Assets
+  const assets = [
+    { term: "su-30", name: "Sukhoi Su-30MKI Fighter" },
+    { term: "kolkata", name: "INS Kolkata Destroyer" },
+    { term: "ocean pioneer", name: "MV Ocean Pioneer Tanker" },
+    { term: "mq-9b", name: "MQ-9B Predator Drone" },
+    { term: "drone", name: "Unmanned Aerial Vehicle (UAV)" },
+    { term: "uav", name: "Unmanned Aerial Vehicle (UAV)" },
+    { term: "gaurav", name: "Long-Range Glide Bomb Gaurav" },
+    { term: "robotic", name: "Autonomous Quadruped Robotic Mules" },
+    { term: "scada", name: "Regional Power Grid SCADA" },
+    { term: "aip", name: "Air-Independent Propulsion (AIP) Fuel Cell" },
+  ];
+  for (const ast of assets) {
+    if (lower.includes(ast.term)) {
+      add(ast.name, "asset");
+    }
+  }
+
+  return { entities, location: primaryLocation };
+}
+
 export async function createAlertFromArticle(article: Article): Promise<Alert> {
   const { summary, timeline_events, sources } = await summarizeArticle(article);
   const { score, severity, justification } = calculateThreatAssessment(article.text, article.title, 1);
+  const { entities, location } = extractEntitiesAndLocation(article.text, article.title);
 
   return {
     id: `alert-${article.id}`,
@@ -477,6 +574,8 @@ export async function createAlertFromArticle(article: Article): Promise<Alert> {
     corroboration_count: 1,
     corroboration_badge: "Single Source Report",
     related_article_ids: [article.id],
+    entities,
+    location,
   };
 }
 
@@ -556,8 +655,8 @@ export async function corroborateArticles(articles: Article[]): Promise<Alert> {
     }
   }
 
-  // 3. Compute threat assessment with multi-source boost
   const { score, severity, justification } = calculateThreatAssessment(combinedText, combinedTitle, sourceCount);
+  const { entities, location } = extractEntitiesAndLocation(combinedText, combinedTitle);
 
   const alertId = primaryArticle.incident_id ? `alert-${primaryArticle.incident_id}` : `alert-${primaryArticle.id}`;
 
@@ -574,6 +673,8 @@ export async function corroborateArticles(articles: Article[]): Promise<Alert> {
     corroboration_count: sourceCount,
     corroboration_badge: `Corroborated by ${sourceCount} sources`,
     related_article_ids: articles.map((a) => a.id),
+    entities,
+    location,
   };
 }
 
