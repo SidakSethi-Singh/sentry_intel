@@ -4,7 +4,7 @@
     "article_id": "art-2026-001",
     "severity": "high",
     "score": 77,
-    "summary": "On October 27 an unauthorized reconnaissance UAV entered Indian airspace over the western Punjab border; IAF Su-30MKI fighters were scrambled and electronic‑warfare units jammed its link, forcing the drone to crash in an agricultural field near Amritsar where DRDO teams recovered high‑resolution sensors, marking the third nocturnal incursion this month and underscoring the need for reinforced anti‑drone defenses. The three reports corroborate the detection, interception, crash, and subsequent forensic analysis.",
+    "summary": "On 27 October, an unidentified reconnaissance UAV entered Indian airspace over the Punjab western sector, detected by IAF radar and Western Air Command, prompting the scramble of Su‑30MKI fighters from Halwara and activation of ground‑based air‑defence and electronic‑warfare assets. The drone was jammed, forced to crash in an uninhabited field near Amritsar where DRDO teams recovered high‑resolution optics and encrypted telemetry, confirming a hostile surveillance attempt. This incident, the third nocturnal reconnaissance incursion this month, highlights the urgent need for hardened anti‑drone defenses along the border.",
     "sources": [
       {
         "name": "PIB Defence",
@@ -21,34 +21,39 @@
     ],
     "timeline_events": [
       {
-        "time": "2023-10-27T04:30:00+05:30",
-        "event": "IAF radar detected an unidentified UAV breaching international airspace in Punjab's western sector"
+        "time": "04:30 IST",
+        "event": "IAF radar network detected an unidentified UAV breaching international airspace along the western sector border in Punjab."
       },
       {
-        "time": "2023-10-27T04:38:00+05:30",
-        "event": "Western Air Command scrambled two Su-30MKI fighters and initiated tactical maneuvers"
+        "time": "04:38 IST",
+        "event": "Western Air Command’s primary surveillance radars confirmed an unauthorized low‑altitude border crossing."
       },
       {
-        "time": "2023-10-27T04:46:00+05:30",
-        "event": "Ground electronic‑warfare jamming batteries severed the UAV's encrypted command‑and‑control link"
+        "time": "04:38 IST",
+        "event": "Two Su‑30MKI fighters were scrambled from Halwara Air Force Base within eight minutes of detection."
       },
       {
-        "time": "2023-10-27T05:00:00+05:30",
-        "event": "Local police cordoned an agricultural field in Lopoke village after a loud detonation and drone debris were reported"
+        "time": "04:46 IST",
+        "event": "Electronic‑warfare jamming batteries severed the UAV’s encrypted command‑and‑control link."
       },
       {
-        "time": "2023-10-27T06:15:00+05:30",
-        "event": "Military personnel from Halwara airbase arrived at the crash perimeter"
+        "time": "05:00 IST",
+        "event": "Local police cordoned an agricultural field in Lopoke village after a loud aerial detonation and drone debris were reported."
       },
       {
-        "time": "2023-10-27T07:15:00+05:30",
-        "event": "DRDO forensic experts recovered high‑resolution optical sensors and encrypted telemetry transmitters from the wreckage"
+        "time": "06:15 IST",
+        "event": "Military personnel from Halwara arrived at the crash perimeter."
+      },
+      {
+        "time": "07:15 IST",
+        "event": "DRDO forensic experts recovered high‑resolution optical sensors and encrypted telemetry transmitters from the wreckage."
       }
     ],
-    "created_at": "2026-10-28T18:07:28.778Z",
+    "created_at": "2026-10-28T18:29:04.479Z",
     "score_justification": "HIGH because: cross-border airspace breach + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-001",
       "art-2026-001b",
@@ -128,7 +133,7 @@
     "article_id": "art-2026-001",
     "severity": "high",
     "score": 77,
-    "summary": "On October 27 an unauthorized reconnaissance UAV entered Indian airspace over the western Punjab border; IAF Su-30MKI fighters were scrambled and electronic‑warfare units jammed its link, forcing the drone to crash in an agricultural field near Amritsar where DRDO teams recovered high‑resolution sensors, marking the third nocturnal incursion this month and underscoring the need for reinforced anti‑drone defenses. The three reports corroborate the detection, interception, crash, and subsequent forensic analysis.",
+    "summary": "On 27 October, an unidentified reconnaissance UAV entered Indian airspace over the Punjab western sector, detected by IAF radar and Western Air Command, prompting the scramble of Su‑30MKI fighters from Halwara and activation of ground‑based air‑defence and electronic‑warfare assets. The drone was jammed, forced to crash in an uninhabited field near Amritsar where DRDO teams recovered high‑resolution optics and encrypted telemetry, confirming a hostile surveillance attempt. This incident, the third nocturnal reconnaissance incursion this month, highlights the urgent need for hardened anti‑drone defenses along the border.",
     "sources": [
       {
         "name": "PIB Defence",
@@ -145,34 +150,39 @@
     ],
     "timeline_events": [
       {
-        "time": "2023-10-27T04:30:00+05:30",
-        "event": "IAF radar detected an unidentified UAV breaching international airspace in Punjab's western sector"
+        "time": "04:30 IST",
+        "event": "IAF radar network detected an unidentified UAV breaching international airspace along the western sector border in Punjab."
       },
       {
-        "time": "2023-10-27T04:38:00+05:30",
-        "event": "Western Air Command scrambled two Su-30MKI fighters and initiated tactical maneuvers"
+        "time": "04:38 IST",
+        "event": "Western Air Command’s primary surveillance radars confirmed an unauthorized low‑altitude border crossing."
       },
       {
-        "time": "2023-10-27T04:46:00+05:30",
-        "event": "Ground electronic‑warfare jamming batteries severed the UAV's encrypted command‑and‑control link"
+        "time": "04:38 IST",
+        "event": "Two Su‑30MKI fighters were scrambled from Halwara Air Force Base within eight minutes of detection."
       },
       {
-        "time": "2023-10-27T05:00:00+05:30",
-        "event": "Local police cordoned an agricultural field in Lopoke village after a loud detonation and drone debris were reported"
+        "time": "04:46 IST",
+        "event": "Electronic‑warfare jamming batteries severed the UAV’s encrypted command‑and‑control link."
       },
       {
-        "time": "2023-10-27T06:15:00+05:30",
-        "event": "Military personnel from Halwara airbase arrived at the crash perimeter"
+        "time": "05:00 IST",
+        "event": "Local police cordoned an agricultural field in Lopoke village after a loud aerial detonation and drone debris were reported."
       },
       {
-        "time": "2023-10-27T07:15:00+05:30",
-        "event": "DRDO forensic experts recovered high‑resolution optical sensors and encrypted telemetry transmitters from the wreckage"
+        "time": "06:15 IST",
+        "event": "Military personnel from Halwara arrived at the crash perimeter."
+      },
+      {
+        "time": "07:15 IST",
+        "event": "DRDO forensic experts recovered high‑resolution optical sensors and encrypted telemetry transmitters from the wreckage."
       }
     ],
-    "created_at": "2026-10-28T18:07:28.778Z",
+    "created_at": "2026-10-28T18:29:04.479Z",
     "score_justification": "HIGH because: cross-border airspace breach + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-001",
       "art-2026-001b",
@@ -252,7 +262,7 @@
     "article_id": "art-2026-001",
     "severity": "high",
     "score": 77,
-    "summary": "On October 27 an unauthorized reconnaissance UAV entered Indian airspace over the western Punjab border; IAF Su-30MKI fighters were scrambled and electronic‑warfare units jammed its link, forcing the drone to crash in an agricultural field near Amritsar where DRDO teams recovered high‑resolution sensors, marking the third nocturnal incursion this month and underscoring the need for reinforced anti‑drone defenses. The three reports corroborate the detection, interception, crash, and subsequent forensic analysis.",
+    "summary": "On 27 October, an unidentified reconnaissance UAV entered Indian airspace over the Punjab western sector, detected by IAF radar and Western Air Command, prompting the scramble of Su‑30MKI fighters from Halwara and activation of ground‑based air‑defence and electronic‑warfare assets. The drone was jammed, forced to crash in an uninhabited field near Amritsar where DRDO teams recovered high‑resolution optics and encrypted telemetry, confirming a hostile surveillance attempt. This incident, the third nocturnal reconnaissance incursion this month, highlights the urgent need for hardened anti‑drone defenses along the border.",
     "sources": [
       {
         "name": "PIB Defence",
@@ -269,34 +279,39 @@
     ],
     "timeline_events": [
       {
-        "time": "2023-10-27T04:30:00+05:30",
-        "event": "IAF radar detected an unidentified UAV breaching international airspace in Punjab's western sector"
+        "time": "04:30 IST",
+        "event": "IAF radar network detected an unidentified UAV breaching international airspace along the western sector border in Punjab."
       },
       {
-        "time": "2023-10-27T04:38:00+05:30",
-        "event": "Western Air Command scrambled two Su-30MKI fighters and initiated tactical maneuvers"
+        "time": "04:38 IST",
+        "event": "Western Air Command’s primary surveillance radars confirmed an unauthorized low‑altitude border crossing."
       },
       {
-        "time": "2023-10-27T04:46:00+05:30",
-        "event": "Ground electronic‑warfare jamming batteries severed the UAV's encrypted command‑and‑control link"
+        "time": "04:38 IST",
+        "event": "Two Su‑30MKI fighters were scrambled from Halwara Air Force Base within eight minutes of detection."
       },
       {
-        "time": "2023-10-27T05:00:00+05:30",
-        "event": "Local police cordoned an agricultural field in Lopoke village after a loud detonation and drone debris were reported"
+        "time": "04:46 IST",
+        "event": "Electronic‑warfare jamming batteries severed the UAV’s encrypted command‑and‑control link."
       },
       {
-        "time": "2023-10-27T06:15:00+05:30",
-        "event": "Military personnel from Halwara airbase arrived at the crash perimeter"
+        "time": "05:00 IST",
+        "event": "Local police cordoned an agricultural field in Lopoke village after a loud aerial detonation and drone debris were reported."
       },
       {
-        "time": "2023-10-27T07:15:00+05:30",
-        "event": "DRDO forensic experts recovered high‑resolution optical sensors and encrypted telemetry transmitters from the wreckage"
+        "time": "06:15 IST",
+        "event": "Military personnel from Halwara arrived at the crash perimeter."
+      },
+      {
+        "time": "07:15 IST",
+        "event": "DRDO forensic experts recovered high‑resolution optical sensors and encrypted telemetry transmitters from the wreckage."
       }
     ],
-    "created_at": "2026-10-28T18:07:28.778Z",
+    "created_at": "2026-10-28T18:29:04.479Z",
     "score_justification": "HIGH because: cross-border airspace breach + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-001",
       "art-2026-001b",
@@ -376,7 +391,7 @@
     "article_id": "art-2026-001",
     "severity": "high",
     "score": 77,
-    "summary": "On October 27 an unauthorized reconnaissance UAV entered Indian airspace over the western Punjab border; IAF Su-30MKI fighters were scrambled and electronic‑warfare units jammed its link, forcing the drone to crash in an agricultural field near Amritsar where DRDO teams recovered high‑resolution sensors, marking the third nocturnal incursion this month and underscoring the need for reinforced anti‑drone defenses. The three reports corroborate the detection, interception, crash, and subsequent forensic analysis.",
+    "summary": "On 27 October, an unidentified reconnaissance UAV entered Indian airspace over the Punjab western sector, detected by IAF radar and Western Air Command, prompting the scramble of Su‑30MKI fighters from Halwara and activation of ground‑based air‑defence and electronic‑warfare assets. The drone was jammed, forced to crash in an uninhabited field near Amritsar where DRDO teams recovered high‑resolution optics and encrypted telemetry, confirming a hostile surveillance attempt. This incident, the third nocturnal reconnaissance incursion this month, highlights the urgent need for hardened anti‑drone defenses along the border.",
     "sources": [
       {
         "name": "PIB Defence",
@@ -393,34 +408,39 @@
     ],
     "timeline_events": [
       {
-        "time": "2023-10-27T04:30:00+05:30",
-        "event": "IAF radar detected an unidentified UAV breaching international airspace in Punjab's western sector"
+        "time": "04:30 IST",
+        "event": "IAF radar network detected an unidentified UAV breaching international airspace along the western sector border in Punjab."
       },
       {
-        "time": "2023-10-27T04:38:00+05:30",
-        "event": "Western Air Command scrambled two Su-30MKI fighters and initiated tactical maneuvers"
+        "time": "04:38 IST",
+        "event": "Western Air Command’s primary surveillance radars confirmed an unauthorized low‑altitude border crossing."
       },
       {
-        "time": "2023-10-27T04:46:00+05:30",
-        "event": "Ground electronic‑warfare jamming batteries severed the UAV's encrypted command‑and‑control link"
+        "time": "04:38 IST",
+        "event": "Two Su‑30MKI fighters were scrambled from Halwara Air Force Base within eight minutes of detection."
       },
       {
-        "time": "2023-10-27T05:00:00+05:30",
-        "event": "Local police cordoned an agricultural field in Lopoke village after a loud detonation and drone debris were reported"
+        "time": "04:46 IST",
+        "event": "Electronic‑warfare jamming batteries severed the UAV’s encrypted command‑and‑control link."
       },
       {
-        "time": "2023-10-27T06:15:00+05:30",
-        "event": "Military personnel from Halwara airbase arrived at the crash perimeter"
+        "time": "05:00 IST",
+        "event": "Local police cordoned an agricultural field in Lopoke village after a loud aerial detonation and drone debris were reported."
       },
       {
-        "time": "2023-10-27T07:15:00+05:30",
-        "event": "DRDO forensic experts recovered high‑resolution optical sensors and encrypted telemetry transmitters from the wreckage"
+        "time": "06:15 IST",
+        "event": "Military personnel from Halwara arrived at the crash perimeter."
+      },
+      {
+        "time": "07:15 IST",
+        "event": "DRDO forensic experts recovered high‑resolution optical sensors and encrypted telemetry transmitters from the wreckage."
       }
     ],
-    "created_at": "2026-10-28T18:07:28.778Z",
+    "created_at": "2026-10-28T18:29:04.479Z",
     "score_justification": "HIGH because: cross-border airspace breach + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-001",
       "art-2026-001b",
@@ -500,7 +520,7 @@
     "article_id": "art-2026-002",
     "severity": "high",
     "score": 73,
-    "summary": "On 27 October, a foreign state‑backed advanced persistent threat attempted to breach northern India’s power dispatch telemetry using zero‑day credential‑stuffing scripts and SCADA‑focused malware, a fact corroborated by both the Ministry of Electronics and Information Technology and Reuters. Rapid response by CERT‑In, grid engineers, and the National Critical Information Infrastructure Protection Centre isolated the compromised segments within minutes and launched forensic audits, averting any outage. The incident highlights critical energy infrastructure vulnerabilities amid heightened regional geopolitical tensions.",
+    "summary": "On 27 October, a state‑aligned advanced persistent threat attempted to breach the northern Indian power dispatch system by exploiting remote telemetry gateways with custom SCADA‑focused malware, a fact confirmed by both the Ministry of Electronics and Information Technology and Reuters. CERT‑In, together with grid engineers, isolated the compromised network segments within minutes and, together with NCIIPC, launched forensic audits and issued patching directives, averting any outage. The incident underscores the vulnerability of critical energy infrastructure to sophisticated, state‑sponsored cyber operations amid regional geopolitical tensions.",
     "sources": [
       {
         "name": "Ministry of Electronics and Information Technology",
@@ -513,26 +533,27 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-27 10:45 IST",
-        "event": "State‑aligned APT attempted to penetrate remote telemetry gateways of northern India’s regional power transmission grid using customized SCADA‑focused malware."
+        "time": "2026-10-27T10:45:00+05:30",
+        "event": "Foreign state‑backed APT attempted to penetrate remote telemetry gateways of northern India's regional power transmission grid using custom SCADA‑forge malware."
       },
       {
-        "time": "2026-10-27 11:00 IST",
-        "event": "CERT‑In issued an emergency threat advisory after detecting the sophisticated state‑sponsored malware targeting regional power load dispatch centers."
+        "time": "2026-10-27T11:00:00+05:30",
+        "event": "CERT‑In issued an emergency threat advisory after detecting the intrusion."
       },
       {
-        "time": "2026-10-27 11:22 IST",
-        "event": "Network defense teams isolated the infected network segments, preventing disruption to civilian electrical grids."
+        "time": "2026-10-27T11:22:00+05:30",
+        "event": "Network defense teams isolated infected network segments, preventing unauthorized switching actions."
       },
       {
-        "time": "2026-10-27 13:45 IST",
-        "event": "NCIIPC began telemetry forensic audits and advised energy operators to patch internet‑facing remote access gateways."
+        "time": "2026-10-27T13:45:00+05:30",
+        "event": "NCIIPC began telemetry forensic audits and advised all energy operators to patch internet‑facing remote access gateways."
       }
     ],
-    "created_at": "2026-10-28T18:07:30.903Z",
+    "created_at": "2026-10-28T18:29:07.220Z",
     "score_justification": "HIGH because: critical infrastructure cyber exploit + emergency CERT-In containment advisory + corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-002",
       "art-2026-002b"
@@ -590,7 +611,7 @@
     "article_id": "art-2026-002",
     "severity": "high",
     "score": 73,
-    "summary": "On 27 October, a foreign state‑backed advanced persistent threat attempted to breach northern India’s power dispatch telemetry using zero‑day credential‑stuffing scripts and SCADA‑focused malware, a fact corroborated by both the Ministry of Electronics and Information Technology and Reuters. Rapid response by CERT‑In, grid engineers, and the National Critical Information Infrastructure Protection Centre isolated the compromised segments within minutes and launched forensic audits, averting any outage. The incident highlights critical energy infrastructure vulnerabilities amid heightened regional geopolitical tensions.",
+    "summary": "On 27 October, a state‑aligned advanced persistent threat attempted to breach the northern Indian power dispatch system by exploiting remote telemetry gateways with custom SCADA‑focused malware, a fact confirmed by both the Ministry of Electronics and Information Technology and Reuters. CERT‑In, together with grid engineers, isolated the compromised network segments within minutes and, together with NCIIPC, launched forensic audits and issued patching directives, averting any outage. The incident underscores the vulnerability of critical energy infrastructure to sophisticated, state‑sponsored cyber operations amid regional geopolitical tensions.",
     "sources": [
       {
         "name": "Ministry of Electronics and Information Technology",
@@ -603,26 +624,27 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-27 10:45 IST",
-        "event": "State‑aligned APT attempted to penetrate remote telemetry gateways of northern India’s regional power transmission grid using customized SCADA‑focused malware."
+        "time": "2026-10-27T10:45:00+05:30",
+        "event": "Foreign state‑backed APT attempted to penetrate remote telemetry gateways of northern India's regional power transmission grid using custom SCADA‑forge malware."
       },
       {
-        "time": "2026-10-27 11:00 IST",
-        "event": "CERT‑In issued an emergency threat advisory after detecting the sophisticated state‑sponsored malware targeting regional power load dispatch centers."
+        "time": "2026-10-27T11:00:00+05:30",
+        "event": "CERT‑In issued an emergency threat advisory after detecting the intrusion."
       },
       {
-        "time": "2026-10-27 11:22 IST",
-        "event": "Network defense teams isolated the infected network segments, preventing disruption to civilian electrical grids."
+        "time": "2026-10-27T11:22:00+05:30",
+        "event": "Network defense teams isolated infected network segments, preventing unauthorized switching actions."
       },
       {
-        "time": "2026-10-27 13:45 IST",
-        "event": "NCIIPC began telemetry forensic audits and advised energy operators to patch internet‑facing remote access gateways."
+        "time": "2026-10-27T13:45:00+05:30",
+        "event": "NCIIPC began telemetry forensic audits and advised all energy operators to patch internet‑facing remote access gateways."
       }
     ],
-    "created_at": "2026-10-28T18:07:30.903Z",
+    "created_at": "2026-10-28T18:29:07.220Z",
     "score_justification": "HIGH because: critical infrastructure cyber exploit + emergency CERT-In containment advisory + corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-002",
       "art-2026-002b"
@@ -680,7 +702,7 @@
     "article_id": "art-2026-002",
     "severity": "high",
     "score": 73,
-    "summary": "On 27 October, a foreign state‑backed advanced persistent threat attempted to breach northern India’s power dispatch telemetry using zero‑day credential‑stuffing scripts and SCADA‑focused malware, a fact corroborated by both the Ministry of Electronics and Information Technology and Reuters. Rapid response by CERT‑In, grid engineers, and the National Critical Information Infrastructure Protection Centre isolated the compromised segments within minutes and launched forensic audits, averting any outage. The incident highlights critical energy infrastructure vulnerabilities amid heightened regional geopolitical tensions.",
+    "summary": "On 27 October, a state‑aligned advanced persistent threat attempted to breach the northern Indian power dispatch system by exploiting remote telemetry gateways with custom SCADA‑focused malware, a fact confirmed by both the Ministry of Electronics and Information Technology and Reuters. CERT‑In, together with grid engineers, isolated the compromised network segments within minutes and, together with NCIIPC, launched forensic audits and issued patching directives, averting any outage. The incident underscores the vulnerability of critical energy infrastructure to sophisticated, state‑sponsored cyber operations amid regional geopolitical tensions.",
     "sources": [
       {
         "name": "Ministry of Electronics and Information Technology",
@@ -693,26 +715,27 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-27 10:45 IST",
-        "event": "State‑aligned APT attempted to penetrate remote telemetry gateways of northern India’s regional power transmission grid using customized SCADA‑focused malware."
+        "time": "2026-10-27T10:45:00+05:30",
+        "event": "Foreign state‑backed APT attempted to penetrate remote telemetry gateways of northern India's regional power transmission grid using custom SCADA‑forge malware."
       },
       {
-        "time": "2026-10-27 11:00 IST",
-        "event": "CERT‑In issued an emergency threat advisory after detecting the sophisticated state‑sponsored malware targeting regional power load dispatch centers."
+        "time": "2026-10-27T11:00:00+05:30",
+        "event": "CERT‑In issued an emergency threat advisory after detecting the intrusion."
       },
       {
-        "time": "2026-10-27 11:22 IST",
-        "event": "Network defense teams isolated the infected network segments, preventing disruption to civilian electrical grids."
+        "time": "2026-10-27T11:22:00+05:30",
+        "event": "Network defense teams isolated infected network segments, preventing unauthorized switching actions."
       },
       {
-        "time": "2026-10-27 13:45 IST",
-        "event": "NCIIPC began telemetry forensic audits and advised energy operators to patch internet‑facing remote access gateways."
+        "time": "2026-10-27T13:45:00+05:30",
+        "event": "NCIIPC began telemetry forensic audits and advised all energy operators to patch internet‑facing remote access gateways."
       }
     ],
-    "created_at": "2026-10-28T18:07:30.903Z",
+    "created_at": "2026-10-28T18:29:07.220Z",
     "score_justification": "HIGH because: critical infrastructure cyber exploit + emergency CERT-In containment advisory + corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-002",
       "art-2026-002b"
@@ -770,7 +793,7 @@
     "article_id": "art-2026-003",
     "severity": "high",
     "score": 77,
-    "summary": "On 26 October 2026, the Marshall Islands‑flagged oil tanker MV Ocean Pioneer was attacked by armed pirate skiffs in the Gulf of Aden, prompting an immediate response from the Indian Navy destroyer INS Kolkata, which deployed a Sea King helicopter and MARCOS commandos to repel the assault. Sources from the Indian Navy, UKMTO and The Maritime Executive corroborate that the pirates were intercepted between 16:15 and 18:30 UTC, five attackers were detained and the 22‑member multinational crew rescued, after which the vessel resumed transit under naval escort, underscoring the ongoing piracy threat to vital shipping lanes.",
+    "summary": "On 26 October 2026, the Indian Navy destroyer INS Kolkata responded to an SOS from the Marshall Islands‑flagged tanker MV Ocean Pioneer after armed skiffs attempted a pirate boarding in the Gulf of Aden; MARCOS commandos, supported by a Sea King helicopter and coalition forces, neutralized the attackers and secured the 22‑member multinational crew. The incident, corroborated by Indian, UKMTO and maritime press reports, underscores the persistent piracy threat near the Bab‑el‑Mandeb and the importance of continuous naval escort patrols to maintain freedom of navigation.",
     "sources": [
       {
         "name": "Naval Headquarters Press Bureau",
@@ -787,34 +810,35 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-26T16:15Z",
-        "event": "Armed skiffs attempted to board MV Ocean Pioneer, firing automatic weapons (UKMTO advisory)."
+        "time": "2026-10-26T16:15:00Z",
+        "event": "Armed skiffs attempted to board the tanker MV Ocean Pioneer in the Gulf of Aden (position 12°18'N, 047°35'E)."
       },
       {
-        "time": "2026-10-26T16:20Z",
-        "event": "INS Kolkata received SOS distress broadcast from MV Ocean Pioneer."
+        "time": "2026-10-26T16:20:00Z",
+        "event": "INS Kolkata responded to the SOS distress broadcast from MV Ocean Pioneer."
       },
       {
-        "time": "2026-10-26T17:45Z",
-        "event": "Coalition and Indian naval elements intervened to halt the pirate attack."
+        "time": "2026-10-26T17:45:00Z",
+        "event": "Coalition and Indian naval elements intervened to counter the pirate attack."
       },
       {
-        "time": "2026-10-26T18:00Z",
-        "event": "MARCOS commandos from INS Kolkata boarded the pirate mother craft under Sea King helicopter cover, neutralizing the assault."
+        "time": "2026-10-26T18:00:00Z",
+        "event": "MARCOS commandos from INS Kolkata, under Sea King helicopter cover, boarded the pirate mother craft and disarmed five attackers."
       },
       {
-        "time": "2026-10-26T18:30Z",
-        "event": "Indian naval forces intercepted the skiffs, detained five assailants and secured the crew."
+        "time": "2026-10-26T18:30:00Z",
+        "event": "Naval forces intercepted the skiffs, detained five assailants and secured all 22 crew members without casualties."
       },
       {
-        "time": "2026-10-26T20:00Z",
-        "event": "The tanker and its crew were escorted into a secure international transit corridor."
+        "time": "2026-10-26T20:00:00Z",
+        "event": "The tanker was escorted into a secure international transit corridor."
       }
     ],
-    "created_at": "2026-10-28T18:07:34.133Z",
+    "created_at": "2026-10-28T18:29:12.355Z",
     "score_justification": "HIGH because: active armed piracy in international shipping corridor + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-003",
       "art-2026-003b",
@@ -890,7 +914,7 @@
     "article_id": "art-2026-003",
     "severity": "high",
     "score": 77,
-    "summary": "On 26 October 2026, the Marshall Islands‑flagged oil tanker MV Ocean Pioneer was attacked by armed pirate skiffs in the Gulf of Aden, prompting an immediate response from the Indian Navy destroyer INS Kolkata, which deployed a Sea King helicopter and MARCOS commandos to repel the assault. Sources from the Indian Navy, UKMTO and The Maritime Executive corroborate that the pirates were intercepted between 16:15 and 18:30 UTC, five attackers were detained and the 22‑member multinational crew rescued, after which the vessel resumed transit under naval escort, underscoring the ongoing piracy threat to vital shipping lanes.",
+    "summary": "On 26 October 2026, the Indian Navy destroyer INS Kolkata responded to an SOS from the Marshall Islands‑flagged tanker MV Ocean Pioneer after armed skiffs attempted a pirate boarding in the Gulf of Aden; MARCOS commandos, supported by a Sea King helicopter and coalition forces, neutralized the attackers and secured the 22‑member multinational crew. The incident, corroborated by Indian, UKMTO and maritime press reports, underscores the persistent piracy threat near the Bab‑el‑Mandeb and the importance of continuous naval escort patrols to maintain freedom of navigation.",
     "sources": [
       {
         "name": "Naval Headquarters Press Bureau",
@@ -907,34 +931,35 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-26T16:15Z",
-        "event": "Armed skiffs attempted to board MV Ocean Pioneer, firing automatic weapons (UKMTO advisory)."
+        "time": "2026-10-26T16:15:00Z",
+        "event": "Armed skiffs attempted to board the tanker MV Ocean Pioneer in the Gulf of Aden (position 12°18'N, 047°35'E)."
       },
       {
-        "time": "2026-10-26T16:20Z",
-        "event": "INS Kolkata received SOS distress broadcast from MV Ocean Pioneer."
+        "time": "2026-10-26T16:20:00Z",
+        "event": "INS Kolkata responded to the SOS distress broadcast from MV Ocean Pioneer."
       },
       {
-        "time": "2026-10-26T17:45Z",
-        "event": "Coalition and Indian naval elements intervened to halt the pirate attack."
+        "time": "2026-10-26T17:45:00Z",
+        "event": "Coalition and Indian naval elements intervened to counter the pirate attack."
       },
       {
-        "time": "2026-10-26T18:00Z",
-        "event": "MARCOS commandos from INS Kolkata boarded the pirate mother craft under Sea King helicopter cover, neutralizing the assault."
+        "time": "2026-10-26T18:00:00Z",
+        "event": "MARCOS commandos from INS Kolkata, under Sea King helicopter cover, boarded the pirate mother craft and disarmed five attackers."
       },
       {
-        "time": "2026-10-26T18:30Z",
-        "event": "Indian naval forces intercepted the skiffs, detained five assailants and secured the crew."
+        "time": "2026-10-26T18:30:00Z",
+        "event": "Naval forces intercepted the skiffs, detained five assailants and secured all 22 crew members without casualties."
       },
       {
-        "time": "2026-10-26T20:00Z",
-        "event": "The tanker and its crew were escorted into a secure international transit corridor."
+        "time": "2026-10-26T20:00:00Z",
+        "event": "The tanker was escorted into a secure international transit corridor."
       }
     ],
-    "created_at": "2026-10-28T18:07:34.133Z",
+    "created_at": "2026-10-28T18:29:12.355Z",
     "score_justification": "HIGH because: active armed piracy in international shipping corridor + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-003",
       "art-2026-003b",
@@ -1010,7 +1035,7 @@
     "article_id": "art-2026-003",
     "severity": "high",
     "score": 77,
-    "summary": "On 26 October 2026, the Marshall Islands‑flagged oil tanker MV Ocean Pioneer was attacked by armed pirate skiffs in the Gulf of Aden, prompting an immediate response from the Indian Navy destroyer INS Kolkata, which deployed a Sea King helicopter and MARCOS commandos to repel the assault. Sources from the Indian Navy, UKMTO and The Maritime Executive corroborate that the pirates were intercepted between 16:15 and 18:30 UTC, five attackers were detained and the 22‑member multinational crew rescued, after which the vessel resumed transit under naval escort, underscoring the ongoing piracy threat to vital shipping lanes.",
+    "summary": "On 26 October 2026, the Indian Navy destroyer INS Kolkata responded to an SOS from the Marshall Islands‑flagged tanker MV Ocean Pioneer after armed skiffs attempted a pirate boarding in the Gulf of Aden; MARCOS commandos, supported by a Sea King helicopter and coalition forces, neutralized the attackers and secured the 22‑member multinational crew. The incident, corroborated by Indian, UKMTO and maritime press reports, underscores the persistent piracy threat near the Bab‑el‑Mandeb and the importance of continuous naval escort patrols to maintain freedom of navigation.",
     "sources": [
       {
         "name": "Naval Headquarters Press Bureau",
@@ -1027,34 +1052,35 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-26T16:15Z",
-        "event": "Armed skiffs attempted to board MV Ocean Pioneer, firing automatic weapons (UKMTO advisory)."
+        "time": "2026-10-26T16:15:00Z",
+        "event": "Armed skiffs attempted to board the tanker MV Ocean Pioneer in the Gulf of Aden (position 12°18'N, 047°35'E)."
       },
       {
-        "time": "2026-10-26T16:20Z",
-        "event": "INS Kolkata received SOS distress broadcast from MV Ocean Pioneer."
+        "time": "2026-10-26T16:20:00Z",
+        "event": "INS Kolkata responded to the SOS distress broadcast from MV Ocean Pioneer."
       },
       {
-        "time": "2026-10-26T17:45Z",
-        "event": "Coalition and Indian naval elements intervened to halt the pirate attack."
+        "time": "2026-10-26T17:45:00Z",
+        "event": "Coalition and Indian naval elements intervened to counter the pirate attack."
       },
       {
-        "time": "2026-10-26T18:00Z",
-        "event": "MARCOS commandos from INS Kolkata boarded the pirate mother craft under Sea King helicopter cover, neutralizing the assault."
+        "time": "2026-10-26T18:00:00Z",
+        "event": "MARCOS commandos from INS Kolkata, under Sea King helicopter cover, boarded the pirate mother craft and disarmed five attackers."
       },
       {
-        "time": "2026-10-26T18:30Z",
-        "event": "Indian naval forces intercepted the skiffs, detained five assailants and secured the crew."
+        "time": "2026-10-26T18:30:00Z",
+        "event": "Naval forces intercepted the skiffs, detained five assailants and secured all 22 crew members without casualties."
       },
       {
-        "time": "2026-10-26T20:00Z",
-        "event": "The tanker and its crew were escorted into a secure international transit corridor."
+        "time": "2026-10-26T20:00:00Z",
+        "event": "The tanker was escorted into a secure international transit corridor."
       }
     ],
-    "created_at": "2026-10-28T18:07:34.133Z",
+    "created_at": "2026-10-28T18:29:12.355Z",
     "score_justification": "HIGH because: active armed piracy in international shipping corridor + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-003",
       "art-2026-003b",
@@ -1130,7 +1156,7 @@
     "article_id": "art-2026-003",
     "severity": "high",
     "score": 77,
-    "summary": "On 26 October 2026, the Marshall Islands‑flagged oil tanker MV Ocean Pioneer was attacked by armed pirate skiffs in the Gulf of Aden, prompting an immediate response from the Indian Navy destroyer INS Kolkata, which deployed a Sea King helicopter and MARCOS commandos to repel the assault. Sources from the Indian Navy, UKMTO and The Maritime Executive corroborate that the pirates were intercepted between 16:15 and 18:30 UTC, five attackers were detained and the 22‑member multinational crew rescued, after which the vessel resumed transit under naval escort, underscoring the ongoing piracy threat to vital shipping lanes.",
+    "summary": "On 26 October 2026, the Indian Navy destroyer INS Kolkata responded to an SOS from the Marshall Islands‑flagged tanker MV Ocean Pioneer after armed skiffs attempted a pirate boarding in the Gulf of Aden; MARCOS commandos, supported by a Sea King helicopter and coalition forces, neutralized the attackers and secured the 22‑member multinational crew. The incident, corroborated by Indian, UKMTO and maritime press reports, underscores the persistent piracy threat near the Bab‑el‑Mandeb and the importance of continuous naval escort patrols to maintain freedom of navigation.",
     "sources": [
       {
         "name": "Naval Headquarters Press Bureau",
@@ -1147,34 +1173,35 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-26T16:15Z",
-        "event": "Armed skiffs attempted to board MV Ocean Pioneer, firing automatic weapons (UKMTO advisory)."
+        "time": "2026-10-26T16:15:00Z",
+        "event": "Armed skiffs attempted to board the tanker MV Ocean Pioneer in the Gulf of Aden (position 12°18'N, 047°35'E)."
       },
       {
-        "time": "2026-10-26T16:20Z",
-        "event": "INS Kolkata received SOS distress broadcast from MV Ocean Pioneer."
+        "time": "2026-10-26T16:20:00Z",
+        "event": "INS Kolkata responded to the SOS distress broadcast from MV Ocean Pioneer."
       },
       {
-        "time": "2026-10-26T17:45Z",
-        "event": "Coalition and Indian naval elements intervened to halt the pirate attack."
+        "time": "2026-10-26T17:45:00Z",
+        "event": "Coalition and Indian naval elements intervened to counter the pirate attack."
       },
       {
-        "time": "2026-10-26T18:00Z",
-        "event": "MARCOS commandos from INS Kolkata boarded the pirate mother craft under Sea King helicopter cover, neutralizing the assault."
+        "time": "2026-10-26T18:00:00Z",
+        "event": "MARCOS commandos from INS Kolkata, under Sea King helicopter cover, boarded the pirate mother craft and disarmed five attackers."
       },
       {
-        "time": "2026-10-26T18:30Z",
-        "event": "Indian naval forces intercepted the skiffs, detained five assailants and secured the crew."
+        "time": "2026-10-26T18:30:00Z",
+        "event": "Naval forces intercepted the skiffs, detained five assailants and secured all 22 crew members without casualties."
       },
       {
-        "time": "2026-10-26T20:00Z",
-        "event": "The tanker and its crew were escorted into a secure international transit corridor."
+        "time": "2026-10-26T20:00:00Z",
+        "event": "The tanker was escorted into a secure international transit corridor."
       }
     ],
-    "created_at": "2026-10-28T18:07:34.133Z",
+    "created_at": "2026-10-28T18:29:12.355Z",
     "score_justification": "HIGH because: active armed piracy in international shipping corridor + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-003",
       "art-2026-003b",
@@ -1250,7 +1277,7 @@
     "article_id": "art-2026-004",
     "severity": "high",
     "score": 77,
-    "summary": "Cyclone Dana intensified over the Bay of Bengal on 28 Oct, prompting a Red Alert and coordinated evacuations of about 180,000 residents from Odisha and West Bengal by the NDRF, local authorities and the Indian Coast Guard. IMD warned of 135 km/h winds and 2.5 m storm surge with landfall expected near Dhamra port later that night, making the event a major humanitarian and security concern.",
+    "summary": "Cyclone Dana rapidly intensified over the Bay of Bengal on 28 Oct, reaching sustained winds of 135 km/h and prompting the India Meteorological Department to issue a national warning and project a landfall near Dhamra port with 2.5 m tidal surges threatening Odisha’s low‑lying districts. In response, ReliefWeb raised the crisis to Red Alert and the National Disaster Response Force, together with the Indian Coast Guard and armed forces, deployed 36 rescue battalions that evacuated over 180,000 residents to shelters by early morning, underscoring a major humanitarian emergency and potential disruption to medical logistics.",
     "sources": [
       {
         "name": "ReliefWeb Crisis Feed",
@@ -1268,37 +1295,34 @@
     "timeline_events": [
       {
         "time": "2026-10-28T02:00Z",
-        "event": "ReliefWeb raised the humanitarian crisis indicator to Red Alert following Cyclone Dana's rapid intensification."
+        "event": "ReliefWeb raised the humanitarian crisis indicator to Red Alert"
       },
       {
         "time": "2026-10-28T03:00Z",
-        "event": "India Meteorological Department issued National Cyclone Warning Bulletin 08 reporting the storm's north‑northwestward movement."
+        "event": "India Meteorological Department issued National Cyclone Warning Bulletin 08 stating Severe Cyclonic Storm Dana moved north‑northwestwards"
       },
       {
         "time": "2026-10-28T03:30Z",
-        "event": "National Disaster Response Force deployed 36 search and rescue teams across vulnerable coastal belts."
+        "event": "NDRF deployed 36 search and rescue teams across vulnerable coastal belts"
       },
       {
         "time": "2026-10-28T04:00Z",
-        "event": "NDRF Director General confirmed 36 specialized disaster response teams positioned across vulnerable zones in Odisha and West Bengal."
+        "event": "NDRF confirmed 36 specialized disaster response teams positioned across vulnerable zones"
       },
       {
         "time": "2026-10-28T04:45Z",
-        "event": "Local administrations completed precautionary evacuation of over 180,000 residents to reinforced shelter hubs."
+        "event": "Local administrations completed evacuation of over 180,000 residents to reinforced shelter hubs"
       },
       {
         "time": "2026-10-28T05:30Z",
-        "event": "Evacuation operations relocated 180,000 people to cyclone shelters equipped with emergency rations and clean drinking water."
-      },
-      {
-        "time": "2026-10-28T20:00Z",
-        "event": "Projected landfall of Cyclone Dana near Dhamra port between late evening Oct 28 and early morning Oct 29, with expected 2.5 m storm surge."
+        "event": "Evacuation operations relocated 180,000 people to cyclone shelters with rations and water"
       }
     ],
-    "created_at": "2026-10-28T18:07:38.267Z",
+    "created_at": "2026-10-28T18:29:15.748Z",
     "score_justification": "HIGH because: life-threatening coastal storm surge & cyclone intensification + mass evacuation of civilian population (>180,000 residents) + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-004",
       "art-2026-004b",
@@ -1380,7 +1404,7 @@
     "article_id": "art-2026-004",
     "severity": "high",
     "score": 77,
-    "summary": "Cyclone Dana intensified over the Bay of Bengal on 28 Oct, prompting a Red Alert and coordinated evacuations of about 180,000 residents from Odisha and West Bengal by the NDRF, local authorities and the Indian Coast Guard. IMD warned of 135 km/h winds and 2.5 m storm surge with landfall expected near Dhamra port later that night, making the event a major humanitarian and security concern.",
+    "summary": "Cyclone Dana rapidly intensified over the Bay of Bengal on 28 Oct, reaching sustained winds of 135 km/h and prompting the India Meteorological Department to issue a national warning and project a landfall near Dhamra port with 2.5 m tidal surges threatening Odisha’s low‑lying districts. In response, ReliefWeb raised the crisis to Red Alert and the National Disaster Response Force, together with the Indian Coast Guard and armed forces, deployed 36 rescue battalions that evacuated over 180,000 residents to shelters by early morning, underscoring a major humanitarian emergency and potential disruption to medical logistics.",
     "sources": [
       {
         "name": "ReliefWeb Crisis Feed",
@@ -1398,37 +1422,34 @@
     "timeline_events": [
       {
         "time": "2026-10-28T02:00Z",
-        "event": "ReliefWeb raised the humanitarian crisis indicator to Red Alert following Cyclone Dana's rapid intensification."
+        "event": "ReliefWeb raised the humanitarian crisis indicator to Red Alert"
       },
       {
         "time": "2026-10-28T03:00Z",
-        "event": "India Meteorological Department issued National Cyclone Warning Bulletin 08 reporting the storm's north‑northwestward movement."
+        "event": "India Meteorological Department issued National Cyclone Warning Bulletin 08 stating Severe Cyclonic Storm Dana moved north‑northwestwards"
       },
       {
         "time": "2026-10-28T03:30Z",
-        "event": "National Disaster Response Force deployed 36 search and rescue teams across vulnerable coastal belts."
+        "event": "NDRF deployed 36 search and rescue teams across vulnerable coastal belts"
       },
       {
         "time": "2026-10-28T04:00Z",
-        "event": "NDRF Director General confirmed 36 specialized disaster response teams positioned across vulnerable zones in Odisha and West Bengal."
+        "event": "NDRF confirmed 36 specialized disaster response teams positioned across vulnerable zones"
       },
       {
         "time": "2026-10-28T04:45Z",
-        "event": "Local administrations completed precautionary evacuation of over 180,000 residents to reinforced shelter hubs."
+        "event": "Local administrations completed evacuation of over 180,000 residents to reinforced shelter hubs"
       },
       {
         "time": "2026-10-28T05:30Z",
-        "event": "Evacuation operations relocated 180,000 people to cyclone shelters equipped with emergency rations and clean drinking water."
-      },
-      {
-        "time": "2026-10-28T20:00Z",
-        "event": "Projected landfall of Cyclone Dana near Dhamra port between late evening Oct 28 and early morning Oct 29, with expected 2.5 m storm surge."
+        "event": "Evacuation operations relocated 180,000 people to cyclone shelters with rations and water"
       }
     ],
-    "created_at": "2026-10-28T18:07:38.267Z",
+    "created_at": "2026-10-28T18:29:15.748Z",
     "score_justification": "HIGH because: life-threatening coastal storm surge & cyclone intensification + mass evacuation of civilian population (>180,000 residents) + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-004",
       "art-2026-004b",
@@ -1510,7 +1531,7 @@
     "article_id": "art-2026-004",
     "severity": "high",
     "score": 77,
-    "summary": "Cyclone Dana intensified over the Bay of Bengal on 28 Oct, prompting a Red Alert and coordinated evacuations of about 180,000 residents from Odisha and West Bengal by the NDRF, local authorities and the Indian Coast Guard. IMD warned of 135 km/h winds and 2.5 m storm surge with landfall expected near Dhamra port later that night, making the event a major humanitarian and security concern.",
+    "summary": "Cyclone Dana rapidly intensified over the Bay of Bengal on 28 Oct, reaching sustained winds of 135 km/h and prompting the India Meteorological Department to issue a national warning and project a landfall near Dhamra port with 2.5 m tidal surges threatening Odisha’s low‑lying districts. In response, ReliefWeb raised the crisis to Red Alert and the National Disaster Response Force, together with the Indian Coast Guard and armed forces, deployed 36 rescue battalions that evacuated over 180,000 residents to shelters by early morning, underscoring a major humanitarian emergency and potential disruption to medical logistics.",
     "sources": [
       {
         "name": "ReliefWeb Crisis Feed",
@@ -1528,37 +1549,34 @@
     "timeline_events": [
       {
         "time": "2026-10-28T02:00Z",
-        "event": "ReliefWeb raised the humanitarian crisis indicator to Red Alert following Cyclone Dana's rapid intensification."
+        "event": "ReliefWeb raised the humanitarian crisis indicator to Red Alert"
       },
       {
         "time": "2026-10-28T03:00Z",
-        "event": "India Meteorological Department issued National Cyclone Warning Bulletin 08 reporting the storm's north‑northwestward movement."
+        "event": "India Meteorological Department issued National Cyclone Warning Bulletin 08 stating Severe Cyclonic Storm Dana moved north‑northwestwards"
       },
       {
         "time": "2026-10-28T03:30Z",
-        "event": "National Disaster Response Force deployed 36 search and rescue teams across vulnerable coastal belts."
+        "event": "NDRF deployed 36 search and rescue teams across vulnerable coastal belts"
       },
       {
         "time": "2026-10-28T04:00Z",
-        "event": "NDRF Director General confirmed 36 specialized disaster response teams positioned across vulnerable zones in Odisha and West Bengal."
+        "event": "NDRF confirmed 36 specialized disaster response teams positioned across vulnerable zones"
       },
       {
         "time": "2026-10-28T04:45Z",
-        "event": "Local administrations completed precautionary evacuation of over 180,000 residents to reinforced shelter hubs."
+        "event": "Local administrations completed evacuation of over 180,000 residents to reinforced shelter hubs"
       },
       {
         "time": "2026-10-28T05:30Z",
-        "event": "Evacuation operations relocated 180,000 people to cyclone shelters equipped with emergency rations and clean drinking water."
-      },
-      {
-        "time": "2026-10-28T20:00Z",
-        "event": "Projected landfall of Cyclone Dana near Dhamra port between late evening Oct 28 and early morning Oct 29, with expected 2.5 m storm surge."
+        "event": "Evacuation operations relocated 180,000 people to cyclone shelters with rations and water"
       }
     ],
-    "created_at": "2026-10-28T18:07:38.267Z",
+    "created_at": "2026-10-28T18:29:15.748Z",
     "score_justification": "HIGH because: life-threatening coastal storm surge & cyclone intensification + mass evacuation of civilian population (>180,000 residents) + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-004",
       "art-2026-004b",
@@ -1640,7 +1658,7 @@
     "article_id": "art-2026-004",
     "severity": "high",
     "score": 77,
-    "summary": "Cyclone Dana intensified over the Bay of Bengal on 28 Oct, prompting a Red Alert and coordinated evacuations of about 180,000 residents from Odisha and West Bengal by the NDRF, local authorities and the Indian Coast Guard. IMD warned of 135 km/h winds and 2.5 m storm surge with landfall expected near Dhamra port later that night, making the event a major humanitarian and security concern.",
+    "summary": "Cyclone Dana rapidly intensified over the Bay of Bengal on 28 Oct, reaching sustained winds of 135 km/h and prompting the India Meteorological Department to issue a national warning and project a landfall near Dhamra port with 2.5 m tidal surges threatening Odisha’s low‑lying districts. In response, ReliefWeb raised the crisis to Red Alert and the National Disaster Response Force, together with the Indian Coast Guard and armed forces, deployed 36 rescue battalions that evacuated over 180,000 residents to shelters by early morning, underscoring a major humanitarian emergency and potential disruption to medical logistics.",
     "sources": [
       {
         "name": "ReliefWeb Crisis Feed",
@@ -1658,37 +1676,34 @@
     "timeline_events": [
       {
         "time": "2026-10-28T02:00Z",
-        "event": "ReliefWeb raised the humanitarian crisis indicator to Red Alert following Cyclone Dana's rapid intensification."
+        "event": "ReliefWeb raised the humanitarian crisis indicator to Red Alert"
       },
       {
         "time": "2026-10-28T03:00Z",
-        "event": "India Meteorological Department issued National Cyclone Warning Bulletin 08 reporting the storm's north‑northwestward movement."
+        "event": "India Meteorological Department issued National Cyclone Warning Bulletin 08 stating Severe Cyclonic Storm Dana moved north‑northwestwards"
       },
       {
         "time": "2026-10-28T03:30Z",
-        "event": "National Disaster Response Force deployed 36 search and rescue teams across vulnerable coastal belts."
+        "event": "NDRF deployed 36 search and rescue teams across vulnerable coastal belts"
       },
       {
         "time": "2026-10-28T04:00Z",
-        "event": "NDRF Director General confirmed 36 specialized disaster response teams positioned across vulnerable zones in Odisha and West Bengal."
+        "event": "NDRF confirmed 36 specialized disaster response teams positioned across vulnerable zones"
       },
       {
         "time": "2026-10-28T04:45Z",
-        "event": "Local administrations completed precautionary evacuation of over 180,000 residents to reinforced shelter hubs."
+        "event": "Local administrations completed evacuation of over 180,000 residents to reinforced shelter hubs"
       },
       {
         "time": "2026-10-28T05:30Z",
-        "event": "Evacuation operations relocated 180,000 people to cyclone shelters equipped with emergency rations and clean drinking water."
-      },
-      {
-        "time": "2026-10-28T20:00Z",
-        "event": "Projected landfall of Cyclone Dana near Dhamra port between late evening Oct 28 and early morning Oct 29, with expected 2.5 m storm surge."
+        "event": "Evacuation operations relocated 180,000 people to cyclone shelters with rations and water"
       }
     ],
-    "created_at": "2026-10-28T18:07:38.267Z",
+    "created_at": "2026-10-28T18:29:15.748Z",
     "score_justification": "HIGH because: life-threatening coastal storm surge & cyclone intensification + mass evacuation of civilian population (>180,000 residents) + corroborated by 3 independent sources.",
     "corroboration_count": 3,
     "corroboration_badge": "Corroborated by 3 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-004",
       "art-2026-004b",
@@ -1770,7 +1785,7 @@
     "article_id": "art-2026-005",
     "severity": "medium",
     "score": 48,
-    "summary": "India and China’s senior border commanders met on 25 October in eastern Ladakh, concluding the 22nd de‑escalation round with an interim pact for coordinated aerial and ground verification patrols and a new hotline protocol. The following day, the Indian MEA confirmed the mutually‑agreed verification framework and announced weekly hotline reviews beginning 1 November to monitor troop withdrawals, underscoring both sides’ commitment to prevent miscalculations along the LAC.",
+    "summary": "The high‑altitude de‑escalation talks between Indian and Chinese border commanders on Oct 25 led to an interim agreement for coordinated aerial and ground verification patrols and the establishment of a dedicated hotline, which the MEA confirmed on Oct 26 as part of mutually agreed verification frameworks; senior liaison officers will conduct weekly hotline reviews from Nov 1 to monitor troop withdrawals.",
     "sources": [
       {
         "name": "The Hindu Defence Desk",
@@ -1783,30 +1798,31 @@
     ],
     "timeline_events": [
       {
-        "time": "2024-10-25T09:30+05:30",
-        "event": "Bilateral border de‑escalation talks commenced between Indian and Chinese military corps commanders at the Chushul‑Moldo meeting point."
+        "time": "2024-10-25 09:30 IST",
+        "event": "Bilateral border de‑escalation talks commenced at the Chushul‑Moldo meeting point"
       },
       {
-        "time": "2024-10-25T15:30+05:30",
-        "event": "Interim agreement reached to conduct synchronized aerial and ground verification patrols without physical standoff encounters."
+        "time": "2024-10-25 15:30 IST",
+        "event": "Interim agreement reached to conduct synchronized aerial and ground verification patrols without physical standoffs"
       },
       {
-        "time": "2024-10-25T16:45+05:30",
-        "event": "Joint liaison committee established dedicated hotline protocols to prevent miscalculations during seasonal troop rotations."
+        "time": "2024-10-25 16:45 IST",
+        "event": "Joint liaison committee established dedicated hotline protocols"
       },
       {
-        "time": "2024-10-26T12:30+05:30",
-        "event": "MEA spokesperson confirmed the mutually agreed ground verification frameworks and reiterated adherence to bilateral agreements."
+        "time": "2024-10-26 12:30 IST",
+        "event": "MEA spokesperson confirmed the mutually agreed ground verification frameworks and commitment to peace"
       },
       {
         "time": "2024-11-01",
-        "event": "Senior military liaisons to begin weekly hotline reviews to verify troop withdrawals from legacy patrol points."
+        "event": "Senior military liaisons to begin weekly hotline reviews to verify troop withdrawals from legacy patrol points"
       }
     ],
-    "created_at": "2026-10-28T18:07:41.403Z",
+    "created_at": "2026-10-28T18:29:18.582Z",
     "score_justification": "MEDIUM because: high-level bilateral corps commander standoff negotiations + corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-005",
       "art-2026-005b"
@@ -1861,7 +1877,7 @@
     "article_id": "art-2026-005",
     "severity": "medium",
     "score": 48,
-    "summary": "India and China’s senior border commanders met on 25 October in eastern Ladakh, concluding the 22nd de‑escalation round with an interim pact for coordinated aerial and ground verification patrols and a new hotline protocol. The following day, the Indian MEA confirmed the mutually‑agreed verification framework and announced weekly hotline reviews beginning 1 November to monitor troop withdrawals, underscoring both sides’ commitment to prevent miscalculations along the LAC.",
+    "summary": "The high‑altitude de‑escalation talks between Indian and Chinese border commanders on Oct 25 led to an interim agreement for coordinated aerial and ground verification patrols and the establishment of a dedicated hotline, which the MEA confirmed on Oct 26 as part of mutually agreed verification frameworks; senior liaison officers will conduct weekly hotline reviews from Nov 1 to monitor troop withdrawals.",
     "sources": [
       {
         "name": "The Hindu Defence Desk",
@@ -1874,30 +1890,31 @@
     ],
     "timeline_events": [
       {
-        "time": "2024-10-25T09:30+05:30",
-        "event": "Bilateral border de‑escalation talks commenced between Indian and Chinese military corps commanders at the Chushul‑Moldo meeting point."
+        "time": "2024-10-25 09:30 IST",
+        "event": "Bilateral border de‑escalation talks commenced at the Chushul‑Moldo meeting point"
       },
       {
-        "time": "2024-10-25T15:30+05:30",
-        "event": "Interim agreement reached to conduct synchronized aerial and ground verification patrols without physical standoff encounters."
+        "time": "2024-10-25 15:30 IST",
+        "event": "Interim agreement reached to conduct synchronized aerial and ground verification patrols without physical standoffs"
       },
       {
-        "time": "2024-10-25T16:45+05:30",
-        "event": "Joint liaison committee established dedicated hotline protocols to prevent miscalculations during seasonal troop rotations."
+        "time": "2024-10-25 16:45 IST",
+        "event": "Joint liaison committee established dedicated hotline protocols"
       },
       {
-        "time": "2024-10-26T12:30+05:30",
-        "event": "MEA spokesperson confirmed the mutually agreed ground verification frameworks and reiterated adherence to bilateral agreements."
+        "time": "2024-10-26 12:30 IST",
+        "event": "MEA spokesperson confirmed the mutually agreed ground verification frameworks and commitment to peace"
       },
       {
         "time": "2024-11-01",
-        "event": "Senior military liaisons to begin weekly hotline reviews to verify troop withdrawals from legacy patrol points."
+        "event": "Senior military liaisons to begin weekly hotline reviews to verify troop withdrawals from legacy patrol points"
       }
     ],
-    "created_at": "2026-10-28T18:07:41.403Z",
+    "created_at": "2026-10-28T18:29:18.582Z",
     "score_justification": "MEDIUM because: high-level bilateral corps commander standoff negotiations + corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-005",
       "art-2026-005b"
@@ -1952,7 +1969,7 @@
     "article_id": "art-2026-005",
     "severity": "medium",
     "score": 48,
-    "summary": "India and China’s senior border commanders met on 25 October in eastern Ladakh, concluding the 22nd de‑escalation round with an interim pact for coordinated aerial and ground verification patrols and a new hotline protocol. The following day, the Indian MEA confirmed the mutually‑agreed verification framework and announced weekly hotline reviews beginning 1 November to monitor troop withdrawals, underscoring both sides’ commitment to prevent miscalculations along the LAC.",
+    "summary": "The high‑altitude de‑escalation talks between Indian and Chinese border commanders on Oct 25 led to an interim agreement for coordinated aerial and ground verification patrols and the establishment of a dedicated hotline, which the MEA confirmed on Oct 26 as part of mutually agreed verification frameworks; senior liaison officers will conduct weekly hotline reviews from Nov 1 to monitor troop withdrawals.",
     "sources": [
       {
         "name": "The Hindu Defence Desk",
@@ -1965,30 +1982,31 @@
     ],
     "timeline_events": [
       {
-        "time": "2024-10-25T09:30+05:30",
-        "event": "Bilateral border de‑escalation talks commenced between Indian and Chinese military corps commanders at the Chushul‑Moldo meeting point."
+        "time": "2024-10-25 09:30 IST",
+        "event": "Bilateral border de‑escalation talks commenced at the Chushul‑Moldo meeting point"
       },
       {
-        "time": "2024-10-25T15:30+05:30",
-        "event": "Interim agreement reached to conduct synchronized aerial and ground verification patrols without physical standoff encounters."
+        "time": "2024-10-25 15:30 IST",
+        "event": "Interim agreement reached to conduct synchronized aerial and ground verification patrols without physical standoffs"
       },
       {
-        "time": "2024-10-25T16:45+05:30",
-        "event": "Joint liaison committee established dedicated hotline protocols to prevent miscalculations during seasonal troop rotations."
+        "time": "2024-10-25 16:45 IST",
+        "event": "Joint liaison committee established dedicated hotline protocols"
       },
       {
-        "time": "2024-10-26T12:30+05:30",
-        "event": "MEA spokesperson confirmed the mutually agreed ground verification frameworks and reiterated adherence to bilateral agreements."
+        "time": "2024-10-26 12:30 IST",
+        "event": "MEA spokesperson confirmed the mutually agreed ground verification frameworks and commitment to peace"
       },
       {
         "time": "2024-11-01",
-        "event": "Senior military liaisons to begin weekly hotline reviews to verify troop withdrawals from legacy patrol points."
+        "event": "Senior military liaisons to begin weekly hotline reviews to verify troop withdrawals from legacy patrol points"
       }
     ],
-    "created_at": "2026-10-28T18:07:41.403Z",
+    "created_at": "2026-10-28T18:29:18.582Z",
     "score_justification": "MEDIUM because: high-level bilateral corps commander standoff negotiations + corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-005",
       "art-2026-005b"
@@ -2043,7 +2061,7 @@
     "article_id": "art-2026-006",
     "severity": "medium",
     "score": 40,
-    "summary": "On October 27, the Defence Research and Development Organisation (DRDO) conducted the maiden flight test of its indigenous 1,000 kg Long‑Range Glide Bomb “Gaurav” from a Sukhoi Su‑30MKI over the Odisha coast. The bomb was guided by a hybrid INS‑satellite navigation system and hit a designated target ship, with telemetry confirming destruction at 10:28 IST with sub‑meter accuracy. Senior defence scientists said the system enhances India’s stand‑off strike capability against fortified bunkers and coastal radar sites.",
+    "summary": "The Defence Research and Development Organisation (DRDO) successfully carried out the maiden flight trial of the 1,000 kg class indigenous Long-Range Glide Bomb 'Gaurav' from a Sukhoi Su-30MKI fighter on October 27 at 10:15 IST off the coast of Odisha. The precision glide bomb was guided towards a designated target ship using an indigenous hybrid navigation system combining INS and satellite guidance. Senior defense scientists stated the weapon significantly enhances stand-off strike capabilities against fortified command bunkers and coastal radar sites.",
     "sources": [
       {
         "name": "PIB Defence",
@@ -2052,18 +2070,19 @@
     ],
     "timeline_events": [
       {
-        "time": "October 27 10:15 IST",
-        "event": "Maiden flight trial of the 1,000 kg indigenous Long‑Range Glide Bomb “Gaurav” launched from a Su‑30MKI off the coast of Odisha"
+        "time": "on October 27 at 10:15 IST",
+        "event": "The Defence Research and Development Organisation (DRDO) successfully carried out the maiden flight trial of the 1,000 kg class indigenous Long-Range Glide Bomb 'Gaurav' from a Sukhoi Su-30MKI fighter on October 27 at 10:15 IST off the coast of Odisha."
       },
       {
         "time": "10:28 IST",
-        "event": "Telemetry stations confirmed target ship destruction with sub‑meter circular error probability"
+        "event": "Telemetry tracking stations along the coastline confirmed target destruction with sub-meter circular error probability at 10:28 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:43.901Z",
+    "created_at": "2026-10-28T18:29:19.694Z",
     "score_justification": "MEDIUM because: combat scramble / tactical special forces deployment + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-006"
     ],
@@ -2129,7 +2148,7 @@
     "article_id": "art-2026-006",
     "severity": "medium",
     "score": 40,
-    "summary": "On October 27, the Defence Research and Development Organisation (DRDO) conducted the maiden flight test of its indigenous 1,000 kg Long‑Range Glide Bomb “Gaurav” from a Sukhoi Su‑30MKI over the Odisha coast. The bomb was guided by a hybrid INS‑satellite navigation system and hit a designated target ship, with telemetry confirming destruction at 10:28 IST with sub‑meter accuracy. Senior defence scientists said the system enhances India’s stand‑off strike capability against fortified bunkers and coastal radar sites.",
+    "summary": "The Defence Research and Development Organisation (DRDO) successfully carried out the maiden flight trial of the 1,000 kg class indigenous Long-Range Glide Bomb 'Gaurav' from a Sukhoi Su-30MKI fighter on October 27 at 10:15 IST off the coast of Odisha. The precision glide bomb was guided towards a designated target ship using an indigenous hybrid navigation system combining INS and satellite guidance. Senior defense scientists stated the weapon significantly enhances stand-off strike capabilities against fortified command bunkers and coastal radar sites.",
     "sources": [
       {
         "name": "PIB Defence",
@@ -2138,18 +2157,19 @@
     ],
     "timeline_events": [
       {
-        "time": "October 27 10:15 IST",
-        "event": "Maiden flight trial of the 1,000 kg indigenous Long‑Range Glide Bomb “Gaurav” launched from a Su‑30MKI off the coast of Odisha"
+        "time": "on October 27 at 10:15 IST",
+        "event": "The Defence Research and Development Organisation (DRDO) successfully carried out the maiden flight trial of the 1,000 kg class indigenous Long-Range Glide Bomb 'Gaurav' from a Sukhoi Su-30MKI fighter on October 27 at 10:15 IST off the coast of Odisha."
       },
       {
         "time": "10:28 IST",
-        "event": "Telemetry stations confirmed target ship destruction with sub‑meter circular error probability"
+        "event": "Telemetry tracking stations along the coastline confirmed target destruction with sub-meter circular error probability at 10:28 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:43.901Z",
+    "created_at": "2026-10-28T18:29:19.694Z",
     "score_justification": "MEDIUM because: combat scramble / tactical special forces deployment + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-006"
     ],
@@ -2236,10 +2256,11 @@
         "event": "Eight foreign crew members were taken into custody and transferred to the joint interrogation center at Porbandar at 18:00 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:45.354Z",
+    "created_at": "2026-10-28T18:29:20.373Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-007"
     ],
@@ -2318,10 +2339,11 @@
         "event": "Eight foreign crew members were taken into custody and transferred to the joint interrogation center at Porbandar at 18:00 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:45.354Z",
+    "created_at": "2026-10-28T18:29:20.373Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-007"
     ],
@@ -2392,10 +2414,11 @@
         "event": "The Cabinet Committee on Security (CCS) chaired by the Prime Minister formally approved the acquisition of 31 MQ-9B High-Altitude Long-Endurance (HALE) remotely piloted aircraft on October 26 at 17:00 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:45.975Z",
+    "created_at": "2026-10-28T18:29:20.990Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-008"
     ],
@@ -2473,10 +2496,11 @@
         "event": "The Cabinet Committee on Security (CCS) chaired by the Prime Minister formally approved the acquisition of 31 MQ-9B High-Altitude Long-Endurance (HALE) remotely piloted aircraft on October 26 at 17:00 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:45.975Z",
+    "created_at": "2026-10-28T18:29:20.990Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-008"
     ],
@@ -2562,10 +2586,11 @@
         "event": "BSF leadership lodged a strong formal protest with counterpart border commanders via an urgent flag meeting convened at 07:00 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:46.539Z",
+    "created_at": "2026-10-28T18:29:21.406Z",
     "score_justification": "MEDIUM because: nocturnal subterranean infiltration attempt + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-009"
     ],
@@ -2644,10 +2669,11 @@
         "event": "BSF leadership lodged a strong formal protest with counterpart border commanders via an urgent flag meeting convened at 07:00 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:46.539Z",
+    "created_at": "2026-10-28T18:29:21.406Z",
     "score_justification": "MEDIUM because: nocturnal subterranean infiltration attempt + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-009"
     ],
@@ -2705,7 +2731,7 @@
     "article_id": "art-2026-010",
     "severity": "low",
     "score": 25,
-    "summary": "The Defence Space Agency and ISRO completed a three‑day simulated space‑defense exercise called “Antariksha Abhyas” in New Delhi on 25 October 2026. The war game tested responses to co‑orbital anti‑satellite attacks, high‑altitude electronic jamming and GPS denial, with commanders validating debris‑tracking and satellite‑replenishment procedures. The Chief of Defence Staff said protecting space‑based surveillance and navigation assets is essential for modern joint‑force doctrine.",
+    "summary": "The Defence Space Agency (DSA) in coordination with the Indian Space Research Organisation (ISRO) concluded a three-day simulated space defense exercise codenamed 'Antariksha Abhyas' on October 25 at 12:00 IST in New Delhi. Multi-domain commanders validated automated space debris tracking and rapid satellite replenishment protocols at 13:30 IST. Chief of Defence Staff emphasized that safeguarding national space-based surveillance and navigation assets is vital for modern joint-force doctrine.",
     "sources": [
       {
         "name": "Defence Space Agency HQ",
@@ -2714,18 +2740,19 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-25T12:00:00+05:30",
-        "event": "Defence Space Agency and ISRO concluded the three‑day simulated space defence exercise ‘Antariksha Abhyas’ in New Delhi"
+        "time": "on October 25 at 12:00 IST",
+        "event": "The Defence Space Agency (DSA) in coordination with the Indian Space Research Organisation (ISRO) concluded a three-day simulated space defense exercise codenamed 'Antariksha Abhyas' on October 25 at 12:00 IST in New Delhi."
       },
       {
-        "time": "2026-10-25T13:30:00+05:30",
-        "event": "Multi‑domain commanders validated automated space debris tracking and rapid satellite replenishment protocols"
+        "time": "13:30 IST",
+        "event": "Multi-domain commanders validated automated space debris tracking and rapid satellite replenishment protocols at 13:30 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:48.943Z",
+    "created_at": "2026-10-28T18:29:22.148Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-010"
     ],
@@ -2782,7 +2809,7 @@
     "article_id": "art-2026-010",
     "severity": "low",
     "score": 25,
-    "summary": "The Defence Space Agency and ISRO completed a three‑day simulated space‑defense exercise called “Antariksha Abhyas” in New Delhi on 25 October 2026. The war game tested responses to co‑orbital anti‑satellite attacks, high‑altitude electronic jamming and GPS denial, with commanders validating debris‑tracking and satellite‑replenishment procedures. The Chief of Defence Staff said protecting space‑based surveillance and navigation assets is essential for modern joint‑force doctrine.",
+    "summary": "The Defence Space Agency (DSA) in coordination with the Indian Space Research Organisation (ISRO) concluded a three-day simulated space defense exercise codenamed 'Antariksha Abhyas' on October 25 at 12:00 IST in New Delhi. Multi-domain commanders validated automated space debris tracking and rapid satellite replenishment protocols at 13:30 IST. Chief of Defence Staff emphasized that safeguarding national space-based surveillance and navigation assets is vital for modern joint-force doctrine.",
     "sources": [
       {
         "name": "Defence Space Agency HQ",
@@ -2791,18 +2818,19 @@
     ],
     "timeline_events": [
       {
-        "time": "2026-10-25T12:00:00+05:30",
-        "event": "Defence Space Agency and ISRO concluded the three‑day simulated space defence exercise ‘Antariksha Abhyas’ in New Delhi"
+        "time": "on October 25 at 12:00 IST",
+        "event": "The Defence Space Agency (DSA) in coordination with the Indian Space Research Organisation (ISRO) concluded a three-day simulated space defense exercise codenamed 'Antariksha Abhyas' on October 25 at 12:00 IST in New Delhi."
       },
       {
-        "time": "2026-10-25T13:30:00+05:30",
-        "event": "Multi‑domain commanders validated automated space debris tracking and rapid satellite replenishment protocols"
+        "time": "13:30 IST",
+        "event": "Multi-domain commanders validated automated space debris tracking and rapid satellite replenishment protocols at 13:30 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:48.943Z",
+    "created_at": "2026-10-28T18:29:22.148Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-010"
     ],
@@ -2859,7 +2887,7 @@
     "article_id": "art-2026-011",
     "severity": "low",
     "score": 25,
-    "summary": "Northern Command of the Indian Army announced the operational induction of 100 indigenous autonomous quadruped robotic mules and armed UGVs in eastern Ladakh on October 27 at 08:00 IST. The robotic units are designed to navigate precipitous rocky terrain and sustain operations in sub-zero conditions up to 17,000 feet altitude. Field trials conducted between 08:30 and 11:00 IST validated automated perimeter patrols and critical ammunition haulage without human intervention.",
+    "summary": "On October 27, the Indian Army’s Northern Command inducted 100 indigenous autonomous quadruped robotic mules and armed unmanned ground vehicles for deployment along high‑altitude LAC posts in eastern Ladakh. The robots, capable of operating up to 17,000 feet in sub‑zero conditions, successfully completed field trials that demonstrated autonomous perimeter patrols and ammunition transport without human control. Their deployment enhances logistical support and resilience against electronic‑warfare jamming in contested border areas.",
     "sources": [
       {
         "name": "Northern Command HQ",
@@ -2868,18 +2896,19 @@
     ],
     "timeline_events": [
       {
-        "time": "on October 27 at 08:00 IST",
-        "event": "Northern Command of the Indian Army announced the operational induction of 100 indigenous autonomous quadruped robotic mules and armed UGVs in eastern Ladakh on October 27 at 08:00 IST."
+        "time": "08:00 IST",
+        "event": "Operational induction of 100 indigenous autonomous quadruped robotic mules and armed UGVs in eastern Ladakh"
       },
       {
-        "time": "08:30",
-        "event": "Field trials conducted between 08:30 and 11:00 IST validated automated perimeter patrols and critical ammunition haulage without human intervention."
+        "time": "08:30-11:00 IST",
+        "event": "Field trials validated automated perimeter patrols and critical ammunition haulage without human intervention"
       }
     ],
-    "created_at": "2026-10-28T18:07:49.379Z",
+    "created_at": "2026-10-28T18:29:24.178Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-011"
     ],
@@ -2945,7 +2974,7 @@
     "article_id": "art-2026-011",
     "severity": "low",
     "score": 25,
-    "summary": "Northern Command of the Indian Army announced the operational induction of 100 indigenous autonomous quadruped robotic mules and armed UGVs in eastern Ladakh on October 27 at 08:00 IST. The robotic units are designed to navigate precipitous rocky terrain and sustain operations in sub-zero conditions up to 17,000 feet altitude. Field trials conducted between 08:30 and 11:00 IST validated automated perimeter patrols and critical ammunition haulage without human intervention.",
+    "summary": "On October 27, the Indian Army’s Northern Command inducted 100 indigenous autonomous quadruped robotic mules and armed unmanned ground vehicles for deployment along high‑altitude LAC posts in eastern Ladakh. The robots, capable of operating up to 17,000 feet in sub‑zero conditions, successfully completed field trials that demonstrated autonomous perimeter patrols and ammunition transport without human control. Their deployment enhances logistical support and resilience against electronic‑warfare jamming in contested border areas.",
     "sources": [
       {
         "name": "Northern Command HQ",
@@ -2954,18 +2983,19 @@
     ],
     "timeline_events": [
       {
-        "time": "on October 27 at 08:00 IST",
-        "event": "Northern Command of the Indian Army announced the operational induction of 100 indigenous autonomous quadruped robotic mules and armed UGVs in eastern Ladakh on October 27 at 08:00 IST."
+        "time": "08:00 IST",
+        "event": "Operational induction of 100 indigenous autonomous quadruped robotic mules and armed UGVs in eastern Ladakh"
       },
       {
-        "time": "08:30",
-        "event": "Field trials conducted between 08:30 and 11:00 IST validated automated perimeter patrols and critical ammunition haulage without human intervention."
+        "time": "08:30-11:00 IST",
+        "event": "Field trials validated automated perimeter patrols and critical ammunition haulage without human intervention"
       }
     ],
-    "created_at": "2026-10-28T18:07:49.379Z",
+    "created_at": "2026-10-28T18:29:24.178Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-011"
     ],
@@ -3048,10 +3078,11 @@
         "event": "Cloud mitigation providers and port IT security engineers rerouted traffic to scrubbing centers at 07:30 IST, averting cargo logistics bottlenecks."
       }
     ],
-    "created_at": "2026-10-28T18:07:49.799Z",
+    "created_at": "2026-10-28T18:29:24.624Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-012"
     ],
@@ -3121,10 +3152,11 @@
         "event": "Cloud mitigation providers and port IT security engineers rerouted traffic to scrubbing centers at 07:30 IST, averting cargo logistics bottlenecks."
       }
     ],
-    "created_at": "2026-10-28T18:07:49.799Z",
+    "created_at": "2026-10-28T18:29:24.624Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-012"
     ],
@@ -3202,10 +3234,11 @@
         "event": "Specialists from the Directorate of Naval Intelligence boarded the detained trawler at Kavaratti anchorage on October 28 at 06:00 IST to examine confiscated electronic equipment."
       }
     ],
-    "created_at": "2026-10-28T18:07:50.223Z",
+    "created_at": "2026-10-28T18:29:25.021Z",
     "score_justification": "LOW because: corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-013",
       "art-2026-013b"
@@ -3288,10 +3321,11 @@
         "event": "Specialists from the Directorate of Naval Intelligence boarded the detained trawler at Kavaratti anchorage on October 28 at 06:00 IST to examine confiscated electronic equipment."
       }
     ],
-    "created_at": "2026-10-28T18:07:50.223Z",
+    "created_at": "2026-10-28T18:29:25.021Z",
     "score_justification": "LOW because: corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-013",
       "art-2026-013b"
@@ -3374,10 +3408,11 @@
         "event": "Specialists from the Directorate of Naval Intelligence boarded the detained trawler at Kavaratti anchorage on October 28 at 06:00 IST to examine confiscated electronic equipment."
       }
     ],
-    "created_at": "2026-10-28T18:07:50.223Z",
+    "created_at": "2026-10-28T18:29:25.021Z",
     "score_justification": "LOW because: corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-013",
       "art-2026-013b"
@@ -3460,10 +3495,11 @@
         "event": "Signals intelligence units attached to Western Air Command identified the origin of high-intensity GNSS spoofing signals on October 27 at 17:30 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:53.300Z",
+    "created_at": "2026-10-28T18:29:25.637Z",
     "score_justification": "LOW because: corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-014",
       "art-2026-014b"
@@ -3542,10 +3578,11 @@
         "event": "Signals intelligence units attached to Western Air Command identified the origin of high-intensity GNSS spoofing signals on October 27 at 17:30 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:53.300Z",
+    "created_at": "2026-10-28T18:29:25.637Z",
     "score_justification": "LOW because: corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-014",
       "art-2026-014b"
@@ -3624,10 +3661,11 @@
         "event": "Signals intelligence units attached to Western Air Command identified the origin of high-intensity GNSS spoofing signals on October 27 at 17:30 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:53.300Z",
+    "created_at": "2026-10-28T18:29:25.637Z",
     "score_justification": "LOW because: corroborated by 2 independent sources.",
     "corroboration_count": 2,
     "corroboration_badge": "Corroborated by 2 sources",
+    "confidence": "high",
     "related_article_ids": [
       "art-2026-014",
       "art-2026-014b"
@@ -3698,10 +3736,11 @@
         "event": "8 and struck a designated maritime target ship with pinpoint accuracy at 09:44 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:53.727Z",
+    "created_at": "2026-10-28T18:29:26.265Z",
     "score_justification": "MEDIUM because: combat scramble / tactical special forces deployment + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-015"
     ],
@@ -3766,10 +3805,11 @@
         "event": "8 and struck a designated maritime target ship with pinpoint accuracy at 09:44 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:53.727Z",
+    "created_at": "2026-10-28T18:29:26.265Z",
     "score_justification": "MEDIUM because: combat scramble / tactical special forces deployment + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-015"
     ],
@@ -3834,10 +3874,11 @@
         "event": "Army ALH Dhruv helicopters evacuated three critically injured personnel to Srinagar military hospital at 08:00 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:54.141Z",
+    "created_at": "2026-10-28T18:29:26.851Z",
     "score_justification": "MEDIUM because: mass evacuation of civilian population (>180,000 residents) + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-016"
     ],
@@ -3921,10 +3962,11 @@
         "event": "Army ALH Dhruv helicopters evacuated three critically injured personnel to Srinagar military hospital at 08:00 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:54.141Z",
+    "created_at": "2026-10-28T18:29:26.851Z",
     "score_justification": "MEDIUM because: mass evacuation of civilian population (>180,000 residents) + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-016"
     ],
@@ -4008,10 +4050,11 @@
         "event": "Enterprise SOC teams detected suspicious PowerShell execution strings at 08:45 IST and isolated active endpoints before data exfiltration occurred."
       }
     ],
-    "created_at": "2026-10-28T18:07:54.545Z",
+    "created_at": "2026-10-28T18:29:27.269Z",
     "score_justification": "HIGH because: critical infrastructure cyber exploit + emergency CERT-In containment advisory + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-017"
     ],
@@ -4081,10 +4124,11 @@
         "event": "Enterprise SOC teams detected suspicious PowerShell execution strings at 08:45 IST and isolated active endpoints before data exfiltration occurred."
       }
     ],
-    "created_at": "2026-10-28T18:07:54.545Z",
+    "created_at": "2026-10-28T18:29:27.269Z",
     "score_justification": "HIGH because: critical infrastructure cyber exploit + emergency CERT-In containment advisory + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-017"
     ],
@@ -4150,10 +4194,11 @@
         "event": "The Indian Navy demonstrated multi-carrier power projection capabilities in the central Bay of Bengal during high-tempo fleet exercises involving indigenous aircraft carrier INS Vikrant and INS Vikramaditya on October 27 at 11:30 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:55.088Z",
+    "created_at": "2026-10-28T18:29:27.678Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-018"
     ],
@@ -4224,10 +4269,11 @@
         "event": "The Indian Navy demonstrated multi-carrier power projection capabilities in the central Bay of Bengal during high-tempo fleet exercises involving indigenous aircraft carrier INS Vikrant and INS Vikramaditya on October 27 at 11:30 IST."
       }
     ],
-    "created_at": "2026-10-28T18:07:55.088Z",
+    "created_at": "2026-10-28T18:29:27.678Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-018"
     ],
@@ -4285,7 +4331,7 @@
     "article_id": "art-2026-019",
     "severity": "medium",
     "score": 40,
-    "summary": "Scientists at the Defence Research and Development Organisation (DRDO) in collaboration with the Indian Army Signals Directorate achieved a landmark breakthrough in secure communications on October 26 at 13:00 IST by executing real-time Quantum Key Distribution (QKD) over a 300-kilometer free-space optical link between two military ground stations. 8 percent despite turbulent atmospheric conditions. Defence technologists confirmed that quantum-encrypted channels render tactical communications completely impervious to eavesdropping and cyber decryption.",
+    "summary": "On October 26, scientists from DRDO and the Indian Army Signals Directorate successfully performed real-time quantum key distribution over a 300‑kilometre free‑space optical link between two military ground stations. The test demonstrated quantum‑encrypted channels with bit error rates under 1.8 % despite atmospheric turbulence. This breakthrough shows tactical communications can be made impervious to eavesdropping and cyber decryption.",
     "sources": [
       {
         "name": "DRDO Space & Cyber Wing",
@@ -4294,14 +4340,15 @@
     ],
     "timeline_events": [
       {
-        "time": "on October 26 at 13:00 IST",
-        "event": "Scientists at the Defence Research and Development Organisation (DRDO) in collaboration with the Indian Army Signals Directorate achieved a landmark breakthrough in secure communications on October 26 at 13:00 IST by executing real-time Quantum Key Distribution (QKD) over a 300-kilometer free-space optical link between two military ground stations."
+        "time": "October 26 at 13:00 IST",
+        "event": "Real-time Quantum Key Distribution over a 300‑kilometre free‑space optical link between two military ground stations was executed."
       }
     ],
-    "created_at": "2026-10-28T18:07:55.526Z",
+    "created_at": "2026-10-28T18:29:29.169Z",
     "score_justification": "MEDIUM because: combat scramble / tactical special forces deployment + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-019"
     ],
@@ -4354,7 +4401,7 @@
     "article_id": "art-2026-019",
     "severity": "medium",
     "score": 40,
-    "summary": "Scientists at the Defence Research and Development Organisation (DRDO) in collaboration with the Indian Army Signals Directorate achieved a landmark breakthrough in secure communications on October 26 at 13:00 IST by executing real-time Quantum Key Distribution (QKD) over a 300-kilometer free-space optical link between two military ground stations. 8 percent despite turbulent atmospheric conditions. Defence technologists confirmed that quantum-encrypted channels render tactical communications completely impervious to eavesdropping and cyber decryption.",
+    "summary": "On October 26, scientists from DRDO and the Indian Army Signals Directorate successfully performed real-time quantum key distribution over a 300‑kilometre free‑space optical link between two military ground stations. The test demonstrated quantum‑encrypted channels with bit error rates under 1.8 % despite atmospheric turbulence. This breakthrough shows tactical communications can be made impervious to eavesdropping and cyber decryption.",
     "sources": [
       {
         "name": "DRDO Space & Cyber Wing",
@@ -4363,14 +4410,15 @@
     ],
     "timeline_events": [
       {
-        "time": "on October 26 at 13:00 IST",
-        "event": "Scientists at the Defence Research and Development Organisation (DRDO) in collaboration with the Indian Army Signals Directorate achieved a landmark breakthrough in secure communications on October 26 at 13:00 IST by executing real-time Quantum Key Distribution (QKD) over a 300-kilometer free-space optical link between two military ground stations."
+        "time": "October 26 at 13:00 IST",
+        "event": "Real-time Quantum Key Distribution over a 300‑kilometre free‑space optical link between two military ground stations was executed."
       }
     ],
-    "created_at": "2026-10-28T18:07:55.526Z",
+    "created_at": "2026-10-28T18:29:29.169Z",
     "score_justification": "MEDIUM because: combat scramble / tactical special forces deployment + single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-019"
     ],
@@ -4440,10 +4488,11 @@
         "event": "P-8I Neptune maritime patrol aircraft dropped sonobuoy barriers at 09:15 IST to triangulate acoustic signatures and track the submersible's eastward departure trajectory."
       }
     ],
-    "created_at": "2026-10-28T18:07:56.393Z",
+    "created_at": "2026-10-28T18:29:32.197Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-020"
     ],
@@ -4508,10 +4557,11 @@
         "event": "P-8I Neptune maritime patrol aircraft dropped sonobuoy barriers at 09:15 IST to triangulate acoustic signatures and track the submersible's eastward departure trajectory."
       }
     ],
-    "created_at": "2026-10-28T18:07:56.393Z",
+    "created_at": "2026-10-28T18:29:32.197Z",
     "score_justification": "LOW because: single-source initial wire report.",
     "corroboration_count": 1,
     "corroboration_badge": "Single Source Report",
+    "confidence": "medium",
     "related_article_ids": [
       "art-2026-020"
     ],

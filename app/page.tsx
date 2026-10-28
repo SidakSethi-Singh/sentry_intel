@@ -188,6 +188,46 @@ export default function HomePage() {
       </header>
 
       <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
+        {/* DEMO-DATA HONESTY & EVALUATION NOTICE */}
+        <div
+          style={{
+            background: "rgba(30, 41, 59, 0.7)",
+            border: "1px solid #334155",
+            borderLeft: "4px solid #38bdf8",
+            borderRadius: "8px",
+            padding: "0.85rem 1.2rem",
+            marginBottom: "2rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1rem",
+            fontSize: "0.82rem",
+            color: "#cbd5e1",
+            lineHeight: "1.5",
+          }}
+        >
+          <div>
+            <span style={{ fontWeight: 700, color: "#38bdf8", marginRight: "0.4rem" }}>
+              🛡️ Demo Data & Evaluation Transparency:
+            </span>
+            The 50 cached threat dossiers displayed here are an illustrative evaluation dataset created for hackathon benchmarking — not a live classified or real-time operational feed. Sentry Intel's architecture is fully production-ready to ingest live articles via the ingest API.
+          </div>
+          <span
+            style={{
+              whiteSpace: "nowrap",
+              background: "#0f172a",
+              border: "1px solid #475569",
+              padding: "3px 8px",
+              borderRadius: "4px",
+              fontSize: "0.72rem",
+              fontWeight: 600,
+              color: "#94a3b8",
+            }}
+          >
+            Evaluation Dataset
+          </span>
+        </div>
+
         {/* Morning Brief Card */}
         {morningBrief && (
           <section
@@ -477,6 +517,41 @@ export default function HomePage() {
                       🛡️ {alert.corroboration_badge}
                     </span>
                   )}
+                  {alert.confidence && (
+                    <span
+                      style={{
+                        background:
+                          alert.confidence === "high"
+                            ? "rgba(16, 185, 129, 0.15)"
+                            : alert.confidence === "medium"
+                            ? "rgba(245, 158, 11, 0.15)"
+                            : "rgba(148, 163, 184, 0.15)",
+                        color:
+                          alert.confidence === "high"
+                            ? "#34d399"
+                            : alert.confidence === "medium"
+                            ? "#fbbf24"
+                            : "#94a3b8",
+                        border: `1px solid ${
+                          alert.confidence === "high"
+                            ? "rgba(16, 185, 129, 0.3)"
+                            : alert.confidence === "medium"
+                            ? "rgba(245, 158, 11, 0.3)"
+                            : "rgba(148, 163, 184, 0.3)"
+                        }`,
+                        padding: "2px 8px",
+                        borderRadius: "12px",
+                        fontSize: "0.72rem",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {alert.confidence === "high"
+                        ? "● High Confidence"
+                        : alert.confidence === "medium"
+                        ? "◐ Med Confidence"
+                        : "○ Low Confidence"}
+                    </span>
+                  )}
                   {alert.recommended_actions && alert.recommended_actions.length > 0 && (
                     <span
                       style={{
@@ -564,8 +639,43 @@ export default function HomePage() {
                     {selectedAlert.severity} (Score {selectedAlert.score}/100)
                   </span>
                   {selectedAlert.corroboration_badge && (
-                    <span style={{ color: "#38bdf8", fontSize: "0.85rem", fontWeight: 600 }}>
+                    <span style={{ color: "#38bdf8", fontSize: "0.85rem", fontWeight: 600, marginRight: "0.5rem" }}>
                       🛡️ {selectedAlert.corroboration_badge}
+                    </span>
+                  )}
+                  {selectedAlert.confidence && (
+                    <span
+                      style={{
+                        background:
+                          selectedAlert.confidence === "high"
+                            ? "rgba(16, 185, 129, 0.15)"
+                            : selectedAlert.confidence === "medium"
+                            ? "rgba(245, 158, 11, 0.15)"
+                            : "rgba(148, 163, 184, 0.15)",
+                        color:
+                          selectedAlert.confidence === "high"
+                            ? "#34d399"
+                            : selectedAlert.confidence === "medium"
+                            ? "#fbbf24"
+                            : "#94a3b8",
+                        border: `1px solid ${
+                          selectedAlert.confidence === "high"
+                            ? "rgba(16, 185, 129, 0.3)"
+                            : selectedAlert.confidence === "medium"
+                            ? "rgba(245, 158, 11, 0.3)"
+                            : "rgba(148, 163, 184, 0.3)"
+                        }`,
+                        padding: "2px 8px",
+                        borderRadius: "12px",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {selectedAlert.confidence === "high"
+                        ? "● High Confidence (Corroborated)"
+                        : selectedAlert.confidence === "medium"
+                        ? "◐ Medium Confidence (Credible Source)"
+                        : "○ Low Confidence (Unconfirmed)"}
                     </span>
                   )}
                   <h3 style={{ margin: "0.5rem 0 0 0", color: "#f8fafc", fontSize: "1.2rem" }}>

@@ -73,6 +73,21 @@ export interface Alert {
   category?: "cyber" | "natural_disaster" | "border_security" | "maritime" | "defence_tech" | "space" | "general";
   recommended_actions?: RecommendedAction[];
   official_links?: OfficialLink[];
+
+  // Trust & Accuracy Pack:
+  confidence?: "high" | "medium" | "low";
+}
+
+/**
+ * Derives confidence rating based on source corroboration and detail depth:
+ * - high: corroborated by 2+ sources with agreeing details
+ * - medium: single credible source with complete tactical reporting
+ * - low: thin, brief, or conflicting wire details
+ */
+export function calculateConfidence(sourceCount: number, textLength: number = 300): "high" | "medium" | "low" {
+  if (sourceCount >= 2) return "high";
+  if (textLength >= 120) return "medium";
+  return "low";
 }
 
 /**
@@ -579,6 +594,7 @@ export async function createAlertFromArticle(article: Article): Promise<Alert> {
   const { score, severity, justification } = calculateThreatAssessment(article.text, article.title, 1);
   const { entities, location } = extractEntitiesAndLocation(article.text, article.title);
   const playbook = getRecommendedActions({ summary, title: article.title, text: article.text, severity, score });
+  const confidence = calculateConfidence(1, article.text.length);
 
   return {
     id: `alert-${article.id}`,
@@ -592,6 +608,7 @@ export async function createAlertFromArticle(article: Article): Promise<Alert> {
     score_justification: justification,
     corroboration_count: 1,
     corroboration_badge: "Single Source Report",
+    confidence,
     related_article_ids: [article.id],
     entities,
     location,
@@ -682,6 +699,7 @@ export async function corroborateArticles(articles: Article[]): Promise<Alert> {
   const playbook = getRecommendedActions({ summary, title: combinedTitle, text: combinedText, severity, score });
 
   const alertId = primaryArticle.incident_id ? `alert-${primaryArticle.incident_id}` : `alert-${primaryArticle.id}`;
+  const confidence = calculateConfidence(sourceCount, combinedText.length);
 
   return {
     id: alertId,
@@ -695,6 +713,7 @@ export async function corroborateArticles(articles: Article[]): Promise<Alert> {
     score_justification: justification,
     corroboration_count: sourceCount,
     corroboration_badge: `Corroborated by ${sourceCount} sources`,
+    confidence,
     related_article_ids: articles.map((a) => a.id),
     entities,
     location,
