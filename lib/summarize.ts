@@ -387,9 +387,67 @@ ${article.text}`;
 }
 
 /**
+ * Calls GroqCloud (groq.com) API if key is present.
+ */
+async function callGroq(apiKey: string, article: Article): Promise<SummarizeResult | null> {
+  const prompt = `You are a defence and national security intelligence analyst.
+Summarize the following article in exactly 2 to 3 plain, factual sentences.
+Cover: 1) What happened, 2) Who is involved, and 3) Why it matters.
+CRITICAL: Never invent facts. Rely strictly on the provided text.
+
+Extract all chronological timeline events mentioned in the text in order.
+
+Format your response as strict JSON with this exact schema:
+{
+  "summary": "2-3 plain sentences",
+  "timeline_events": [
+    { "time": "timestamp string from text", "event": "event description" }
+  ]
+}
+
+Article Title: ${article.title}
+Source: ${article.source}
+Published At: ${article.published_at}
+Text:
+${article.text}`;
+
+  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "openai/gpt-oss-120b",
+      messages: [
+        { role: "system", content: "You respond only in valid JSON." },
+        { role: "user", content: prompt },
+      ],
+      temperature: 0.1,
+      response_format: { type: "json_object" },
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Groq API error: ${res.status} ${res.statusText}`);
+  }
+
+  const data = await res.json();
+  const content = data.choices?.[0]?.message?.content;
+  if (!content) return null;
+
+  const parsed = JSON.parse(content);
+  return {
+    summary: parsed.summary,
+    timeline_events: Array.isArray(parsed.timeline_events) ? parsed.timeline_events : [],
+    sources: [{ name: article.source, url: article.url }],
+  };
+}
+
+/**
  * Main function: summarizeArticle(article)
  * Returns { summary, timeline_events, sources }
- * - Uses LLM if OPENAI_API_KEY, GROK_API_KEY, or ANTHROPIC_API_KEY is present
+ * - Uses LLM if GROQ_API_KEY, OPENAI_API_KEY, GROK_API_KEY, or ANTHROPIC_API_KEY is present
  * - Falls back to high-accuracy extractive algorithm offline or on failure
  * - Never crashes
  */
@@ -403,23 +461,25 @@ export async function summarizeArticle(article: Article): Promise<SummarizeResul
   }
 
   // 1. Check for LLM keys in environment
+  const rawGrok = process.env.GROK_API_KEY?.trim() || "";
+  const groqKey = (process.env.GROQ_API_KEY || (rawGrok.startsWith("gsk_") ? rawGrok : ""))?.trim();
+  const grokKey = (process.env.XAI_API_KEY || (rawGrok.startsWith("xai-") ? rawGrok : ""))?.trim();
   const openAiKey = process.env.OPENAI_API_KEY?.trim();
-  const grokKey = (process.env.GROK_API_KEY || process.env.XAI_API_KEY)?.trim();
   const anthropicKey = process.env.ANTHROPIC_API_KEY?.trim();
 
-  // Try Grok if configured
-  if (grokKey) {
+  // 1a. Try GroqCloud if configured (ultra-fast 500+ tok/s)
+  if (groqKey) {
     try {
-      const result = await callGrok(grokKey, article);
+      const result = await callGroq(groqKey, article);
       if (result && result.summary) {
         return result;
       }
     } catch (err) {
-      console.warn("Grok summarization failed, falling back:", (err as Error).message);
+      console.warn("Groq summarization failed, trying next provider:", (err as Error).message);
     }
   }
 
-  // Try OpenAI if configured
+  // 1b. Try OpenAI if configured
   if (openAiKey) {
     try {
       const result = await callOpenAI(openAiKey, article);
@@ -427,11 +487,23 @@ export async function summarizeArticle(article: Article): Promise<SummarizeResul
         return result;
       }
     } catch (err) {
-      console.warn("OpenAI summarization failed, falling back:", (err as Error).message);
+      console.warn("OpenAI summarization failed, trying next provider:", (err as Error).message);
     }
   }
 
-  // Try Anthropic if configured
+  // 1c. Try Grok (xAI) if configured
+  if (grokKey) {
+    try {
+      const result = await callGrok(grokKey, article);
+      if (result && result.summary) {
+        return result;
+      }
+    } catch (err) {
+      console.warn("Grok summarization failed, trying next provider:", (err as Error).message);
+    }
+  }
+
+  // 1d. Try Anthropic if configured
   if (anthropicKey) {
     try {
       const result = await callAnthropic(anthropicKey, article);
@@ -439,7 +511,7 @@ export async function summarizeArticle(article: Article): Promise<SummarizeResul
         return result;
       }
     } catch (err) {
-      console.warn("Anthropic summarization failed, falling back:", (err as Error).message);
+      console.warn("Anthropic summarization failed, trying next provider:", (err as Error).message);
     }
   }
 

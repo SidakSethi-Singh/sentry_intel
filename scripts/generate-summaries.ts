@@ -3,6 +3,10 @@ import * as path from "path";
 import type { Article, Alert } from "../lib/summarize.ts";
 import { createAlertFromArticle } from "../lib/summarize.ts";
 
+if (fs.existsSync(".env") && typeof (process as any).loadEnvFile === "function") {
+  (process as any).loadEnvFile(".env");
+}
+
 async function main() {
   const articlesPath = path.resolve(process.cwd(), "data/sample-articles.json");
   const summariesPath = path.resolve(process.cwd(), "data/sample-summaries.json");
