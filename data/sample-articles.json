@@ -1,0 +1,42 @@
+[
+  {
+    "id": "art-2026-001",
+    "title": "IAF Successfully Intercepts Unmanned Aerial Reconnaissance Drone Near Western Sector Border",
+    "source": "PIB Defence",
+    "url": "https://pib.gov.in/PressReleasePage.aspx?PRID=2098411",
+    "published_at": "2026-10-27T08:30:00Z",
+    "text": "On October 27 at 04:30 IST, the Indian Air Force radar network detected an unidentified unmanned aerial vehicle breaching international airspace along the Western Sector border in Punjab. Combat Air Patrol Sukhoi Su-30MKI fighters were scrambled from Halwara Air Force Base within eight minutes of detection. Ground-based air defense units engaged countermeasures and forced the hostile surveillance drone to crash in an uninhabited field near Amritsar. Forensic experts from the Defence Research and Development Organisation (DRDO) recovered high-resolution optical surveillance sensors and encrypted telemetry transmitters from the wreckage at 07:15 IST. Defence officials confirmed that border surveillance radar frequencies have been placed on heightened readiness across the sector."
+  },
+  {
+    "id": "art-2026-002",
+    "title": "Critical Infrastructure Cyber Attack Targeting Regional Power Grid Thwarted by CERT-In",
+    "source": "Ministry of Electronics and Information Technology",
+    "url": "https://meity.gov.in/press-release/cert-in-grid-advisory-oct26",
+    "published_at": "2026-10-27T14:15:00Z",
+    "text": "The Indian Computer Emergency Response Team (CERT-In) issued an emergency threat advisory on October 27 at 11:00 IST after detecting sophisticated state-sponsored malware targeting northern regional power load dispatch centers. The threat actors deployed zero-day credential stuffing scripts and customized industrial control protocol trojans aimed at disconnecting distribution substations. Network defense teams isolated the infected network segments within 22 minutes, preventing disruptions to civilian electrical grids. National Critical Information Infrastructure Protection Centre (NCIIPC) launched telemetry forensic audits at 13:45 IST and advised all federal and state energy operators to patch internet-facing remote access gateways immediately."
+  },
+  {
+    "id": "art-2026-003",
+    "title": "Indian Navy Warships Deploy Anti-Piracy Patrols in Gulf of Aden Following Tanker Distress Call",
+    "source": "Naval Headquarters Press Bureau",
+    "url": "https://indiannavy.nic.in/press-release/gulf-aden-escort-oct2026",
+    "published_at": "2026-10-26T19:40:00Z",
+    "text": "Indian Navy guided missile destroyer INS Kolkata responded to an urgent SOS distress broadcast from a commercial merchant vessel in the Gulf of Aden on October 26 at 16:20 UTC. Armed skiffs carrying six pirate combatants attempted to board the oil tanker MV Ocean Pioneer approximately 90 nautical miles southeast of Yemen. INS Kolkata launched an embarked Sea King helicopter and dispatched marine commandos (MARCOS) via fast interception rigid-hull boats. By 18:30 UTC, naval forces intercepted the skiffs, detained five assailants, and safely secured all twenty-two crew members without casualties. The Navy announced that escort patrols along international shipping corridor Alpha will remain continuous to guarantee navigational freedom."
+  },
+  {
+    "id": "art-2026-004",
+    "title": "ReliefWeb Issues Red Alert for Coastal Displacements as Severe Cyclone Dana Intensifies",
+    "source": "ReliefWeb Crisis Feed",
+    "url": "https://reliefweb.int/report/india/severe-cyclone-dana-humanitarian-situation-report-2",
+    "published_at": "2026-10-28T05:00:00Z",
+    "text": "Humanitarian coordination agency ReliefWeb raised the humanitarian crisis indicator to Red Alert on October 28 at 02:00 GMT following the rapid intensification of Cyclone Dana over the Bay of Bengal. Sustained wind speeds have reached 135 km/h, posing an extreme storm surge threat to low-lying coastal districts of Odisha and West Bengal. National Disaster Response Force (NDRF) deployed 36 search and rescue teams across vulnerable coastal belts starting at 03:30 GMT. Local administrations completed the precautionary evacuation of over 180,000 residents to reinforced shelter hubs by 04:45 GMT. Humanitarian logistics coordinators warned that supply route blockages may impact medical accessibility over the next 48 hours."
+  },
+  {
+    "id": "art-2026-005",
+    "title": "Bilateral Border Commanders Hold High-Altitude De-escalation Talks in Eastern Ladakh",
+    "source": "The Hindu Defence Desk",
+    "url": "https://thehindu.com/news/national/border-de-escalation-corps-commander-talks-ladakh",
+    "published_at": "2026-10-26T11:00:00Z",
+    "text": "Military corps commanders from India and China concluded the 22nd round of bilateral border de-escalation meetings on October 25 at the Chushul-Moldo border personnel meeting point. Talks commenced at 09:30 IST and continued for seven hours, focusing on coordinated disengagement from remaining friction points in Depsang and Demchok. Both delegations reached an interim agreement at 15:30 IST to conduct synchronized aerial and ground verification patrols without physical standoff encounters. A joint liaison committee established dedicated hotline protocols at 16:45 IST to prevent miscalculations during seasonal troop rotations in the sub-zero winter period."
+  }
+]
