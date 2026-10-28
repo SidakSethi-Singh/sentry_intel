@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
-import type { Article, Alert } from "../lib/summarize.ts";
-import { createAlertFromArticle } from "../lib/summarize.ts";
+import type { Article } from "../lib/summarize.ts";
+import { processAndClusterArticles } from "../lib/summarize.ts";
 
 if (fs.existsSync(".env") && typeof (process as any).loadEnvFile === "function") {
   (process as any).loadEnvFile(".env");
@@ -20,19 +20,23 @@ async function main() {
   const articles: Article[] = JSON.parse(raw);
 
   console.log(`Loaded ${articles.length} articles from ${articlesPath}`);
-  const summariesRecord: Record<string, Alert> = {};
+  console.log(`Clustering and corroborating multi-source incident reports...`);
 
-  for (const article of articles) {
-    console.log(`Processing article [${article.id}]: ${article.title}`);
-    const alert = await createAlertFromArticle(article);
-    summariesRecord[article.id] = alert;
-    console.log(`  -> Severity: ${alert.severity}, Score: ${alert.score}`);
-    console.log(`  -> Summary: ${alert.summary.substring(0, 80)}...`);
-    console.log(`  -> Timeline Events: ${alert.timeline_events.length}`);
+  const summariesRecord = await processAndClusterArticles(articles);
+
+  for (const [key, alert] of Object.entries(summariesRecord)) {
+    if (key.startsWith("alert-")) {
+      console.log(`\nIncident Alert: [${alert.id}]`);
+      console.log(`  -> Severity: ${alert.severity.toUpperCase()} (Score: ${alert.score})`);
+      console.log(`  -> Corroboration: ${alert.corroboration_badge} (${alert.sources.length} sources)`);
+      console.log(`  -> Audit Justification: ${alert.score_justification}`);
+      console.log(`  -> Timeline Events: ${alert.timeline_events.length}`);
+      console.log(`  -> Summary: ${alert.summary.substring(0, 90)}...`);
+    }
   }
 
   fs.writeFileSync(summariesPath, JSON.stringify(summariesRecord, null, 2), "utf-8");
-  console.log(`\nSuccessfully saved ${Object.keys(summariesRecord).length} summaries to ${summariesPath}`);
+  console.log(`\nSuccessfully saved ${Object.keys(summariesRecord).length} alert entries to ${summariesPath}`);
 }
 
 main().catch((err) => {

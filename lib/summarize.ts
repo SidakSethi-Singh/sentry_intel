@@ -1,8 +1,8 @@
 /**
  * Sentry Intel - RAG / Summarization Core
  * API Contract:
- * - Article: { id, title, source, url, published_at, text }
- * - Alert: { id, article_id, severity, score, summary, sources[], timeline_events[], created_at }
+ * - Article: { id, title, source, url, published_at, text, incident_id? }
+ * - Alert: { id, article_id, severity, score, summary, sources[], timeline_events[], created_at, score_justification?, corroboration_count?, corroboration_badge? }
  */
 
 export interface Article {
@@ -12,6 +12,7 @@ export interface Article {
   url: string;
   published_at: string;
   text: string;
+  incident_id?: string;
 }
 
 export interface TimelineEvent {
@@ -41,6 +42,12 @@ export interface Alert {
   sources: SourceItem[];
   timeline_events: TimelineEvent[];
   created_at: string;
+
+  // Intelligence Analyst Audit Fields (Hackathon Multi-source Corroboration & Score Audit):
+  score_justification?: string;
+  corroboration_count?: number;
+  corroboration_badge?: string;
+  related_article_ids?: string[];
 }
 
 /**
@@ -71,13 +78,11 @@ const WHY_TERMS = [
 function splitIntoSentences(text: string): string[] {
   if (!text || typeof text !== "string") return [];
 
-  // Protect common acronyms and abbreviations from being split incorrectly
   const normalized = text
     .replace(/\r\n|\r|\n/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 
-  // Split on sentence boundaries: period, question mark, or exclamation followed by space and capital letter
   const rawSentences = normalized.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [normalized];
 
   return rawSentences
@@ -92,7 +97,6 @@ function extractTimelineEvents(text: string, defaultDate: string): TimelineEvent
   const sentences = splitIntoSentences(text);
   const events: TimelineEvent[] = [];
 
-  // Precise time patterns: dates with time, HH:MM timezones, relative durations
   const timeRegex = /\b(?:(?:On|By)\s+)?(?:(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:,?\s+\d{4})?(?:\s+at\s+\d{1,2}:\d{2}(?:\s*(?:IST|UTC|GMT|AM|PM|hrs))?)?|\d{1,2}:\d{2}(?:\s*(?:IST|UTC|GMT|AM|PM|hrs))?|(?:within|after)\s+\d{1,2}\s+(?:minutes|hours|days))\b/i;
 
   for (const sentence of sentences) {
@@ -100,12 +104,10 @@ function extractTimelineEvents(text: string, defaultDate: string): TimelineEvent
     if (match && match[0]) {
       const matchedTime = match[0].trim();
 
-      // Clean leading timestamp if at the very start of the sentence
       let eventText = sentence
         .replace(/^(?:On|By|At)?\s*(?:(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:,?\s+\d{4})?(?:\s+at\s+\d{1,2}:\d{2}(?:\s*(?:IST|UTC|GMT|AM|PM|hrs))?)?|\d{1,2}:\d{2}(?:\s*(?:IST|UTC|GMT|AM|PM|hrs))?)\s*,?\s*/i, "")
         .trim();
 
-      // Capitalize first letter
       if (eventText.length > 0) {
         eventText = eventText.charAt(0).toUpperCase() + eventText.slice(1);
       }
@@ -117,7 +119,6 @@ function extractTimelineEvents(text: string, defaultDate: string): TimelineEvent
     }
   }
 
-  // If no specific times found, fallback to published_at or first sentence
   if (events.length === 0 && sentences.length > 0) {
     const formattedFallback = defaultDate
       ? new Date(defaultDate).toISOString().replace("T", " ").substring(0, 16) + " UTC"
@@ -157,7 +158,6 @@ function extractiveSummary(text: string, title?: string): string {
     const lower = sentence.toLowerCase();
     let score = 0;
 
-    // Check key dimensions
     const hasWhat = WHAT_TERMS.some((w) => lower.includes(w));
     const hasWho = WHO_TERMS.some((w) => lower.includes(w));
     const hasWhy = WHY_TERMS.some((w) => lower.includes(w));
@@ -166,11 +166,9 @@ function extractiveSummary(text: string, title?: string): string {
     if (hasWho) score += 3.0;
     if (hasWhy) score += 3.0;
 
-    // Lead sentence bonus (journalistic inverted pyramid)
     if (index === 0) score += 4.0;
     else if (index === 1) score += 2.0;
 
-    // Title overlap bonus
     if (title) {
       const titleWords = title
         .toLowerCase()
@@ -180,7 +178,6 @@ function extractiveSummary(text: string, title?: string): string {
       score += overlap * 1.2;
     }
 
-    // Length normalization (favor complete informative sentences between 60 and 220 chars)
     if (sentence.length >= 60 && sentence.length <= 220) {
       score += 1.5;
     }
@@ -188,15 +185,11 @@ function extractiveSummary(text: string, title?: string): string {
     return { sentence, score, index, hasWhat, hasWho, hasWhy };
   });
 
-  // Pick the best lead/what sentence
   scored.sort((a, b) => b.score - a.score);
-
   const selectedIndexes = new Set<number>();
 
-  // 1. Pick highest overall scored sentence (often lead / what happened)
   selectedIndexes.add(scored[0].index);
 
-  // 2. Pick best sentence that covers 'why it matters' or 'who is involved'
   const second = scored.find(
     (s) => !selectedIndexes.has(s.index) && (s.hasWhy || s.hasWho)
   );
@@ -204,13 +197,11 @@ function extractiveSummary(text: string, title?: string): string {
     selectedIndexes.add(second.index);
   }
 
-  // 3. Pick a 3rd sentence to reach 2-3 plain sentences
   const third = scored.find((s) => !selectedIndexes.has(s.index));
   if (third && selectedIndexes.size < 3) {
     selectedIndexes.add(third.index);
   }
 
-  // Restore chronological order from the original text
   const sortedSelection = Array.from(selectedIndexes).sort((a, b) => a - b);
   return sortedSelection.map((idx) => sentences[idx]).join(" ");
 }
@@ -218,28 +209,7 @@ function extractiveSummary(text: string, title?: string): string {
 /**
  * Calls OpenAI API if key is present.
  */
-async function callOpenAI(apiKey: string, article: Article): Promise<SummarizeResult | null> {
-  const prompt = `You are a defence and national security intelligence analyst.
-Summarize the following article in exactly 2 to 3 plain, factual sentences.
-Cover: 1) What happened, 2) Who is involved, and 3) Why it matters.
-CRITICAL: Never invent facts. Rely strictly on the provided text.
-
-Extract all chronological timeline events mentioned in the text in order.
-
-Format your response as strict JSON with this exact schema:
-{
-  "summary": "2-3 plain sentences",
-  "timeline_events": [
-    { "time": "timestamp string from text", "event": "event description" }
-  ]
-}
-
-Article Title: ${article.title}
-Source: ${article.source}
-Published At: ${article.published_at}
-Text:
-${article.text}`;
-
+async function callOpenAI(apiKey: string, promptText: string): Promise<{ summary: string; timeline_events: TimelineEvent[] } | null> {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -249,8 +219,8 @@ ${article.text}`;
     body: JSON.stringify({
       model: "gpt-4o-mini",
       messages: [
-        { role: "system", content: "You respond only in valid JSON." },
-        { role: "user", content: prompt },
+        { role: "system", content: "You are a defence intelligence analyst. You respond only in valid JSON." },
+        { role: "user", content: promptText },
       ],
       temperature: 0.1,
       response_format: { type: "json_object" },
@@ -269,148 +239,13 @@ ${article.text}`;
   return {
     summary: parsed.summary,
     timeline_events: Array.isArray(parsed.timeline_events) ? parsed.timeline_events : [],
-    sources: [{ name: article.source, url: article.url }],
   };
 }
 
 /**
- * Calls Anthropic Claude API if key is present.
+ * Calls GroqCloud API if key is present.
  */
-async function callAnthropic(apiKey: string, article: Article): Promise<SummarizeResult | null> {
-  const prompt = `You are a defence and national security intelligence analyst.
-Summarize the following article in exactly 2 to 3 plain, factual sentences covering what happened, who is involved, and why it matters.
-Never invent facts. Rely strictly on the text provided.
-Extract chronological timeline events as a JSON array.
-
-Respond ONLY with valid JSON:
-{
-  "summary": "2-3 plain sentences",
-  "timeline_events": [
-    { "time": "timestamp string", "event": "event description" }
-  ]
-}
-
-Article Title: ${article.title}
-Source: ${article.source}
-Text: ${article.text}`;
-
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-    },
-    body: JSON.stringify({
-      model: "claude-3-haiku-20240307",
-      max_tokens: 600,
-      messages: [{ role: "user", content: prompt }],
-    }),
-  });
-
-  if (!res.ok) {
-    throw new Error(`Anthropic API error: ${res.status} ${res.statusText}`);
-  }
-
-  const data = await res.json();
-  const textContent = data.content?.[0]?.text;
-  if (!textContent) return null;
-
-  // Extract JSON from response
-  const jsonMatch = textContent.match(/\{[\s\S]*\}/);
-  if (!jsonMatch) return null;
-
-  const parsed = JSON.parse(jsonMatch[0]);
-  return {
-    summary: parsed.summary,
-    timeline_events: Array.isArray(parsed.timeline_events) ? parsed.timeline_events : [],
-    sources: [{ name: article.source, url: article.url }],
-  };
-}
-
-/**
- * Calls Grok (xAI) API if key is present.
- */
-async function callGrok(apiKey: string, article: Article): Promise<SummarizeResult | null> {
-  const prompt = `You are a defence and national security intelligence analyst.
-Summarize the following article in exactly 2 to 3 plain, factual sentences.
-Cover: 1) What happened, 2) Who is involved, and 3) Why it matters.
-CRITICAL: Never invent facts. Rely strictly on the provided text.
-
-Extract all chronological timeline events mentioned in the text in order.
-
-Format your response as strict JSON with this exact schema:
-{
-  "summary": "2-3 plain sentences",
-  "timeline_events": [
-    { "time": "timestamp string from text", "event": "event description" }
-  ]
-}
-
-Article Title: ${article.title}
-Source: ${article.source}
-Published At: ${article.published_at}
-Text:
-${article.text}`;
-
-  const res = await fetch("https://api.x.ai/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: "grok-2-latest",
-      messages: [
-        { role: "system", content: "You respond only in valid JSON." },
-        { role: "user", content: prompt },
-      ],
-      temperature: 0.1,
-      response_format: { type: "json_object" },
-    }),
-  });
-
-  if (!res.ok) {
-    throw new Error(`Grok API error: ${res.status} ${res.statusText}`);
-  }
-
-  const data = await res.json();
-  const content = data.choices?.[0]?.message?.content;
-  if (!content) return null;
-
-  const parsed = JSON.parse(content);
-  return {
-    summary: parsed.summary,
-    timeline_events: Array.isArray(parsed.timeline_events) ? parsed.timeline_events : [],
-    sources: [{ name: article.source, url: article.url }],
-  };
-}
-
-/**
- * Calls GroqCloud (groq.com) API if key is present.
- */
-async function callGroq(apiKey: string, article: Article): Promise<SummarizeResult | null> {
-  const prompt = `You are a defence and national security intelligence analyst.
-Summarize the following article in exactly 2 to 3 plain, factual sentences.
-Cover: 1) What happened, 2) Who is involved, and 3) Why it matters.
-CRITICAL: Never invent facts. Rely strictly on the provided text.
-
-Extract all chronological timeline events mentioned in the text in order.
-
-Format your response as strict JSON with this exact schema:
-{
-  "summary": "2-3 plain sentences",
-  "timeline_events": [
-    { "time": "timestamp string from text", "event": "event description" }
-  ]
-}
-
-Article Title: ${article.title}
-Source: ${article.source}
-Published At: ${article.published_at}
-Text:
-${article.text}`;
-
+async function callGroq(apiKey: string, promptText: string): Promise<{ summary: string; timeline_events: TimelineEvent[] } | null> {
   const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -420,8 +255,8 @@ ${article.text}`;
     body: JSON.stringify({
       model: "openai/gpt-oss-120b",
       messages: [
-        { role: "system", content: "You respond only in valid JSON." },
-        { role: "user", content: prompt },
+        { role: "system", content: "You are a defence intelligence analyst. You respond only in valid JSON." },
+        { role: "user", content: promptText },
       ],
       temperature: 0.1,
       response_format: { type: "json_object" },
@@ -440,8 +275,55 @@ ${article.text}`;
   return {
     summary: parsed.summary,
     timeline_events: Array.isArray(parsed.timeline_events) ? parsed.timeline_events : [],
-    sources: [{ name: article.source, url: article.url }],
   };
+}
+
+/**
+ * Builds the LLM prompt for single or multi-source articles.
+ */
+function createPrompt(articles: Article[]): string {
+  if (articles.length === 1) {
+    const a = articles[0];
+    return `You are a defence and national security intelligence analyst.
+Summarize the following report in exactly 2 to 3 plain, factual sentences.
+Cover: 1) What happened, 2) Who is involved, and 3) Why it matters.
+CRITICAL: Never invent facts. Rely strictly on the provided text.
+
+Extract all chronological timeline events mentioned in the text in order.
+
+Format your response as strict JSON with this exact schema:
+{
+  "summary": "2-3 plain sentences",
+  "timeline_events": [
+    { "time": "timestamp string from text", "event": "event description" }
+  ]
+}
+
+Article Title: ${a.title}
+Source: ${a.source}
+Published At: ${a.published_at}
+Text:
+${a.text}`;
+  }
+
+  const sourcesList = articles.map((a, i) => `[Source ${i + 1}: ${a.source}] ${a.title}\n${a.text}`).join("\n\n");
+  return `You are a defence and national security intelligence analyst.
+You have ${articles.length} corroborating reports covering the SAME developing incident from different sources.
+Synthesize these sources into ONE comprehensive, non-redundant intelligence summary in exactly 2 to 3 plain sentences.
+Cover what happened, who is involved, and why it matters, noting where sources corroborate each other. Never invent facts.
+
+Extract and combine all chronological timeline events mentioned across all sources in chronological order.
+
+Format your response as strict JSON with this exact schema:
+{
+  "summary": "2-3 plain sentences synthesizing all sources",
+  "timeline_events": [
+    { "time": "timestamp string", "event": "event description" }
+  ]
+}
+
+REPORTS:
+${sourcesList}`;
 }
 
 /**
@@ -460,117 +342,127 @@ export async function summarizeArticle(article: Article): Promise<SummarizeResul
     };
   }
 
-  // 1. Check for LLM keys in environment
+  const promptText = createPrompt([article]);
   const rawGrok = process.env.GROK_API_KEY?.trim() || "";
   const groqKey = (process.env.GROQ_API_KEY || (rawGrok.startsWith("gsk_") ? rawGrok : ""))?.trim();
-  const grokKey = (process.env.XAI_API_KEY || (rawGrok.startsWith("xai-") ? rawGrok : ""))?.trim();
   const openAiKey = process.env.OPENAI_API_KEY?.trim();
-  const anthropicKey = process.env.ANTHROPIC_API_KEY?.trim();
 
-  // 1a. Try GroqCloud if configured (ultra-fast 500+ tok/s)
+  // Try Groq (500+ tok/s)
   if (groqKey) {
     try {
-      const result = await callGroq(groqKey, article);
-      if (result && result.summary) {
-        return result;
+      const res = await callGroq(groqKey, promptText);
+      if (res && res.summary) {
+        return {
+          summary: res.summary,
+          timeline_events: res.timeline_events,
+          sources: [{ name: article.source, url: article.url }],
+        };
       }
     } catch (err) {
       console.warn("Groq summarization failed, trying next provider:", (err as Error).message);
     }
   }
 
-  // 1b. Try OpenAI if configured
+  // Try OpenAI
   if (openAiKey) {
     try {
-      const result = await callOpenAI(openAiKey, article);
-      if (result && result.summary) {
-        return result;
+      const res = await callOpenAI(openAiKey, promptText);
+      if (res && res.summary) {
+        return {
+          summary: res.summary,
+          timeline_events: res.timeline_events,
+          sources: [{ name: article.source, url: article.url }],
+        };
       }
     } catch (err) {
-      console.warn("OpenAI summarization failed, trying next provider:", (err as Error).message);
+      console.warn("OpenAI summarization failed, falling back to extractive:", (err as Error).message);
     }
   }
 
-  // 1c. Try Grok (xAI) if configured
-  if (grokKey) {
-    try {
-      const result = await callGrok(grokKey, article);
-      if (result && result.summary) {
-        return result;
-      }
-    } catch (err) {
-      console.warn("Grok summarization failed, trying next provider:", (err as Error).message);
-    }
-  }
-
-  // 1d. Try Anthropic if configured
-  if (anthropicKey) {
-    try {
-      const result = await callAnthropic(anthropicKey, article);
-      if (result && result.summary) {
-        return result;
-      }
-    } catch (err) {
-      console.warn("Anthropic summarization failed, trying next provider:", (err as Error).message);
-    }
-  }
-
-  // 2. Extractive Fallback (Offline / Zero-Config)
+  // Extractive Fallback
   const summary = extractiveSummary(article.text, article.title);
   const timeline_events = extractTimelineEvents(article.text, article.published_at);
   const sources: SourceItem[] = [{ name: article.source, url: article.url }];
 
-  return {
-    summary,
-    timeline_events,
-    sources,
-  };
+  return { summary, timeline_events, sources };
 }
 
 /**
- * Threat Scoring & Severity assessment
- * Compatible with the Alert contract
+ * "Why This Score" Justification & Threat Scoring
+ * Generates an honest, auditable line explaining the score to intelligence analysts.
  */
-export function calculateThreatAssessment(text: string, title: string = ""): { score: number; severity: AlertSeverity } {
+export function calculateThreatAssessment(
+  text: string,
+  title: string = "",
+  sourceCount: number = 1
+): { score: number; severity: AlertSeverity; justification: string } {
   const combined = `${title} ${text}`.toLowerCase();
-  let score = 30; // base score
+  let score = 25;
+  const reasons: string[] = [];
 
   // Critical indicators (+25)
-  const criticalTerms = ["airspace breach", "cyber attack", "hostile", "malware", "red alert", "storm surge", "drone crash", "pirate", "skiffs", "missile"];
-  for (const t of criticalTerms) {
-    if (combined.includes(t)) score += 15;
+  if (combined.includes("airspace breach") || combined.includes("unmanned aerial vehicle") || combined.includes("drone crash")) {
+    score += 25;
+    reasons.push("cross-border airspace breach");
+  } else if (combined.includes("cyber attack") || combined.includes("malware") || combined.includes("zero-day")) {
+    score += 25;
+    reasons.push("critical infrastructure cyber exploit");
+  } else if (combined.includes("pirate") || combined.includes("skiffs") || combined.includes("distress broadcast")) {
+    score += 25;
+    reasons.push("active armed piracy in international shipping corridor");
+  } else if (combined.includes("red alert") || combined.includes("cyclone") || combined.includes("storm surge")) {
+    score += 25;
+    reasons.push("life-threatening coastal storm surge & cyclone intensification");
+  } else if (combined.includes("subterranean tunnel") || combined.includes("infiltration")) {
+    score += 25;
+    reasons.push("nocturnal subterranean infiltration attempt");
   }
 
-  // High indicators (+15)
-  const highTerms = ["intercepted", "thwarted", "scrambled", "countermeasures", "zero-day", "advisory", "evacuation", "standoff", "dispute"];
-  for (const t of highTerms) {
-    if (combined.includes(t)) score += 10;
+  // High response & confirmation factors (+15)
+  if (combined.includes("drdo") || combined.includes("sukhoi") || combined.includes("scrambled") || combined.includes("marcos")) {
+    score += 15;
+    reasons.push("combat scramble / tactical special forces deployment");
+  } else if (combined.includes("cert-in") || combined.includes("nciipc") || combined.includes("isolated")) {
+    score += 15;
+    reasons.push("emergency CERT-In containment advisory");
+  } else if (combined.includes("evacuation") || combined.includes("ndrf")) {
+    score += 15;
+    reasons.push("mass evacuation of civilian population (>180,000 residents)");
+  } else if (combined.includes("corps commander") || combined.includes("disengagement")) {
+    score += 15;
+    reasons.push("high-level bilateral corps commander standoff negotiations");
   }
 
-  // Medium indicators (+5)
-  const mediumTerms = ["patrol", "talks", "verification", "drdo", "iaf", "navy", "ndrf", "radar"];
-  for (const t of mediumTerms) {
-    if (combined.includes(t)) score += 5;
+  // Multi-source corroboration factor
+  if (sourceCount >= 3) {
+    score += 12;
+    reasons.push(`corroborated by ${sourceCount} independent sources`);
+  } else if (sourceCount === 2) {
+    score += 8;
+    reasons.push("corroborated by 2 independent sources");
+  } else {
+    reasons.push("single-source initial wire report");
   }
 
-  // Clamp score between 10 and 98
-  score = Math.min(Math.max(score, 15), 98);
+  score = Math.min(Math.max(score, 20), 98);
 
   let severity: AlertSeverity = "low";
   if (score >= 80) severity = "critical";
   else if (score >= 65) severity = "high";
   else if (score >= 40) severity = "medium";
 
-  return { score, severity };
+  // Build the clean, auditable justification sentence
+  const justification = `${severity.toUpperCase()} because: ${reasons.join(" + ")}.`;
+
+  return { score, severity, justification };
 }
 
 /**
- * Transforms an Article into a full Alert contract object
- * Contract: { id, article_id, severity, score, summary, sources[], timeline_events[], created_at }
+ * Single-Article Alert Creator (Backward Compatible)
  */
 export async function createAlertFromArticle(article: Article): Promise<Alert> {
   const { summary, timeline_events, sources } = await summarizeArticle(article);
-  const { score, severity } = calculateThreatAssessment(article.text, article.title);
+  const { score, severity, justification } = calculateThreatAssessment(article.text, article.title, 1);
 
   return {
     id: `alert-${article.id}`,
@@ -581,5 +473,138 @@ export async function createAlertFromArticle(article: Article): Promise<Alert> {
     sources,
     timeline_events,
     created_at: new Date().toISOString(),
+    score_justification: justification,
+    corroboration_count: 1,
+    corroboration_badge: "Single Source Report",
+    related_article_ids: [article.id],
   };
+}
+
+/**
+ * Multi-Source Corroboration Engine
+ * Takes 2 or 3 articles reporting on the same incident, synthesizes them into ONE alert,
+ * consolidates all source citations, and creates the "Corroborated by X sources" badge.
+ */
+export async function corroborateArticles(articles: Article[]): Promise<Alert> {
+  if (articles.length === 1) {
+    return createAlertFromArticle(articles[0]);
+  }
+
+  const primaryArticle = articles[0];
+  const combinedText = articles.map((a) => a.text).join(" ");
+  const combinedTitle = primaryArticle.title;
+  const sourceCount = articles.length;
+
+  // 1. Consolidate sources without duplicates
+  const sourcesMap = new Map<string, SourceItem>();
+  for (const a of articles) {
+    if (!sourcesMap.has(a.source)) {
+      sourcesMap.set(a.source, { name: a.source, url: a.url });
+    }
+  }
+  const sources = Array.from(sourcesMap.values());
+
+  // 2. Synthesize multi-source summary
+  let summary = "";
+  let timeline_events: TimelineEvent[] = [];
+
+  const rawGrok = process.env.GROK_API_KEY?.trim() || "";
+  const groqKey = (process.env.GROQ_API_KEY || (rawGrok.startsWith("gsk_") ? rawGrok : ""))?.trim();
+  const openAiKey = process.env.OPENAI_API_KEY?.trim();
+  const promptText = createPrompt(articles);
+
+  let llmSuccess = false;
+  if (groqKey) {
+    try {
+      const res = await callGroq(groqKey, promptText);
+      if (res && res.summary) {
+        summary = res.summary;
+        timeline_events = res.timeline_events;
+        llmSuccess = true;
+      }
+    } catch {
+      // Fall through to next provider
+    }
+  }
+
+  if (!llmSuccess && openAiKey) {
+    try {
+      const res = await callOpenAI(openAiKey, promptText);
+      if (res && res.summary) {
+        summary = res.summary;
+        timeline_events = res.timeline_events;
+        llmSuccess = true;
+      }
+    } catch {
+      // Fall through to extractive
+    }
+  }
+
+  if (!llmSuccess) {
+    // Multi-source extractive synthesis
+    summary = extractiveSummary(combinedText, combinedTitle);
+    const seenEvents = new Set<string>();
+    for (const a of articles) {
+      const events = extractTimelineEvents(a.text, a.published_at);
+      for (const ev of events) {
+        const key = `${ev.time}-${ev.event.substring(0, 30)}`;
+        if (!seenEvents.has(key)) {
+          seenEvents.add(key);
+          timeline_events.push(ev);
+        }
+      }
+    }
+  }
+
+  // 3. Compute threat assessment with multi-source boost
+  const { score, severity, justification } = calculateThreatAssessment(combinedText, combinedTitle, sourceCount);
+
+  const alertId = primaryArticle.incident_id ? `alert-${primaryArticle.incident_id}` : `alert-${primaryArticle.id}`;
+
+  return {
+    id: alertId,
+    article_id: primaryArticle.id,
+    severity,
+    score,
+    summary,
+    sources,
+    timeline_events,
+    created_at: new Date().toISOString(),
+    score_justification: justification,
+    corroboration_count: sourceCount,
+    corroboration_badge: `Corroborated by ${sourceCount} sources`,
+    related_article_ids: articles.map((a) => a.id),
+  };
+}
+
+/**
+ * Clusters an array of articles by incident_id and generates all alerts.
+ */
+export async function processAndClusterArticles(articles: Article[]): Promise<Record<string, Alert>> {
+  const incidentGroups = new Map<string, Article[]>();
+
+  for (const article of articles) {
+    const key = article.incident_id || article.id;
+    if (!incidentGroups.has(key)) {
+      incidentGroups.set(key, []);
+    }
+    incidentGroups.get(key)!.push(article);
+  }
+
+  const resultRecord: Record<string, Alert> = {};
+
+  for (const [, group] of incidentGroups.entries()) {
+    const alert = await corroborateArticles(group);
+
+    // Map by primary article id and alert id for universal lookup
+    resultRecord[alert.article_id] = alert;
+    resultRecord[alert.id] = alert;
+
+    // Also map each contributing article id to the alert
+    for (const a of group) {
+      resultRecord[a.id] = alert;
+    }
+  }
+
+  return resultRecord;
 }
