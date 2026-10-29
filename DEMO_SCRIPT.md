@@ -9,7 +9,7 @@
 ## ⚠️ Non-Negotiable Presentation Honesty Rules
 1. **Never claim "100% accurate" or "100% grounded" without the exact scope:** Always say: *"100% faithfulness on our 20-incident-alert audit sample (51/51 named entities grounded, 30/30 citations resolved, 0 hallucinations)."*
 2. **Never claim a complaint was filed:** When showing the India reporting guidance, state plainly that it is **guidance on verified official channels**, not an active automated filing with police/CERT-In.
-3. **Never claim unintegrated models or fake benchmarks:** Do not claim Gemini or Grok (xAI) are wired. Never mention the term "B25" (no specification exists).
+3. **Never claim unintegrated models or fake benchmarks:** Do not claim Gemini or Grok (xAI) are wired. Never claim unverified benchmark standards or specifications that do not exist in the repository.
 4. **Never present demo data as live military radar:** Keep the demo-data honesty notice visible.
 
 ---
@@ -102,14 +102,14 @@ When presenting in a longer format or during an in-depth booth demonstration:
 - **Do not attempt a live network call that may fail.**
 - **Explain the Architecture:** State that Sentry Intel is architected for Pathway streaming retrieval (TantivyBM25 + dense vectors), currently backed by the verified in-process keyword and entity engine.
 - **Play Pre-Recorded Fallback Clip:** If requested by judges, show a 15-second backup video clip of the live-update beat in a controlled environment.
-- **Run Live on Keyword Engine:** Perform the live Q&A using the verified local retrieval engine, which is 100% resilient and guaranteed to respond.
+- **Run Live on Keyword Engine:** Perform the live Q&A using the verified local retrieval engine, which runs locally without API calls, so it still answers when providers fail or the network drops.
 
 ---
 
 ## 🛡️ Judge Defense & FAQ Battlecard
 
 ### Q1: "How do you handle API downtime or internet cutoffs during military operations?"
-> **Answer:** *"Sentry Intel uses a **triple-redundant zero-crash architecture**. Our primary tier is ultra-fast GroqCloud; secondary is OpenAI; but if an operational unit is air-gapped or experiencing API rate limits, our **Tier 3 deterministic extractive NLP engine** executes entirely locally without external network dependencies. The system never crashes."*
+> **Answer:** *"Sentry Intel uses a **triple-redundant failover architecture**. Our primary tier is ultra-fast GroqCloud; secondary is OpenAI; but if an operational unit is air-gapped or experiencing API rate limits, our **Tier 3 deterministic extractive NLP engine** executes entirely locally without external network dependencies, continuing to answer queries without crashing."*
 
 ### Q2: "Can adversaries inject malicious prompts through ingested news wires (Prompt Injection)?"
 > **Answer:** *"All ingested wire text is treated strictly as **untrusted data**. HTML tags and scripts are sanitized before prompting, system instructions remain strictly isolated server-side, and our verification pass ensures every cited statement maps directly to verifiable source text."*

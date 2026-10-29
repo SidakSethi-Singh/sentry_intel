@@ -75,7 +75,7 @@ In production (Vercel), environment variable **NAMES ONLY** configured in the Pr
 - **The SI-12 Gap Warning:**
   - In the current database migration (`supabase/migrations/20261029021500_init_sentry_intel.sql`), the `alerts` table only stores base columns (`id`, `article_id`, `severity`, `score`, `summary`, `sources`, `timeline_events`, `created_at`).
   - Extended fields (`score_justification`, `corroboration_count`, `corroboration_badge`, `entities`, `location`, `category`, `recommended_actions`, `official_links`, `confidence`) are currently in `data/sample-summaries.json` (Local Mode).
-  - **Operational Rule for Demo:** If production is connected to Supabase before Task SI-12 migration lands, note the SI-12 gap honestly in the demo script or use local JSON mode for the demo so the full trust and response playbooks are 100% visible.
+  - **Operational Rule for Demo:** If production is connected to Supabase before Task SI-12 migration lands, note the SI-12 gap honestly in the demo script or use local JSON mode for the demo so the full trust and response playbooks are fully visible.
 
 ### B. Cold-Load Verification Checklist (Fresh Incognito Browser)
 Test against the deployed production URL:
@@ -94,4 +94,4 @@ If Vercel deployment encounters DNS/network failures or is inaccessible at pitch
 1. **Never Fake a Link:** State plainly to judges:  
    *"Our production URL is hosted on Vercel, but for mission-critical reliability and to avoid conference Wi-Fi latency, we are demonstrating directly against our local build which mirrors production."*
 2. **Recorded Fallback Video:** Keep a pre-recorded, unedited 2-minute video file (`demo_recording_backup.mp4`) showing the cold-load checklist executed locally.
-3. **Local Offline Run:** Run `npm run dev` locally. The local JSON store runs with 100% offline uptime even with the machine in Airplane Mode.
+3. **Local Offline Run:** Run `npm run dev` locally. The local JSON store operates offline even with the machine in Airplane Mode, requiring no external network calls.

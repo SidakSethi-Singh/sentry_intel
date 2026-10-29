@@ -13,7 +13,7 @@
 Unlike traditional news scrapers or passive dashboards, Sentry Intel solves the core operational challenges faced by defence and security analysts:
 1. **Multi-Source Corroboration & Threat Auditing:** Synthesizes multiple independent wire reports into a single unified incident alert with automated chronological timeline reconstruction, entity recognition, and an auditable **"Why This Score"** justification.
 2. **"What To Do" Operational Response Playbooks:** Turns raw threat alerts into immediate, actionable response guidance with strict role separation for defence analysts and civilian safety authorities.
-3. **Trust & Accuracy Groundedness Engine:** Rigorous mathematical entity verification, confidence badging, and strict zero-hallucination citations.
+3. **Trust & Accuracy Groundedness Engine:** Entity verification, confidence badging, and citation-grounded answers.
 
 ---
 
@@ -31,7 +31,7 @@ Every intelligence dashboard answers *"What happened?"* Sentry Intel answers the
 
 ### 2. 🔍 Ask Sentry — Context-Grounded RAG Q&A
 - Natural-language interrogation engine across all cached intelligence alerts (API backend `/api/ask` operational; UI integration in progress via Task SI-01).
-- **Zero Hallucination Guarantee:** Grounded synthesis strictly citing exact Alert IDs (`[alert-inc-...]`). If no corroborating data exists in the corpus, it plainly states *"No matching alerts found"* rather than guessing.
+- **Citation-grounded answers:** Answers cite exact Alert IDs (`[alert-inc-...]`), and when no corroborating data exists in the corpus the system states *"No matching alerts found"* rather than guessing. Faithfulness measured at 100% on the 20-incident-alert audit sample (51/51 entities, 30/30 citations, 0 hallucinations).
 - Citations map directly to alert dossiers.
 - Built-in **AI Morning Brief** generator for command morning briefings (active on dashboard).
 
@@ -40,10 +40,10 @@ Every intelligence dashboard answers *"What happened?"* Sentry Intel answers the
 - Automatically calculates a transparent threat score (0–100) and severity rating (`LOW`, `MEDIUM`, `HIGH`, `CRITICAL`).
 - Emits an honest, auditable sentence explaining *why* the threat received its rating (e.g., *“HIGH because: cross-border airspace breach + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.”*).
 
-### 4. ⚡ Multi-Provider Architecture & Zero-Crash Resilience
+### 4. ⚡ Multi-Provider Architecture & Local Extractive Resilience
 - **Tier 1 (Wired):** GroqCloud ultra-fast inference (`openai/gpt-oss-120b` at 500+ tokens/second).
 - **Tier 2 (Wired):** OpenAI fallback (`gpt-4o-mini`).
-- **Tier 3 (Wired Fallback):** Deterministic, offline-capable extractive NLP summarization & chronological timeline parser that guarantees zero-crash uptime even under complete network failure or API rate limits.
+- **Tier 3 (Wired Fallback):** Deterministic, offline-capable extractive NLP summarization & chronological timeline parser that keeps answering locally when APIs fail or rate-limit, because it needs no network calls.
 - **Provider Status Note:** Groq and OpenAI are the only wired LLM providers. Placeholders in `.env.example` for Gemini, Grok (xAI), or Anthropic have no active code paths in this release.
 - **Retrieval Engine & Pathway Status:** Intelligence retrieval currently operates via an in-memory keyword, entity, and location matching engine with recency boosting. Pathway streaming hybrid retrieval (TantivyBM25 + dense vectors, SI-29/30) is currently in progress as a sidecar; the keyword engine remains the automatic zero-downtime fallback.
 
@@ -63,7 +63,7 @@ Every alert derives a transparent confidence tier:
 - **`Low Confidence` (○)**: Initial wire bulletin with thin or unconfirmed operational details.
 
 ### 3. 🧪 Faithfulness & Groundedness Audit (`scripts/verify-faithfulness.ts`)
-To eliminate hallucinations, Sentry Intel includes an automated audit test suite that validates every cached summary against its underlying source articles.
+To measure faithfulness and prevent hallucinations, Sentry Intel includes an automated audit test suite that validates every cached summary against its underlying source articles.
 
 ```bash
 npm run verify-faithfulness
@@ -87,7 +87,7 @@ npm run verify-faithfulness
 We believe in engineering transparency — knowing boundaries is the foundation of mission-critical systems:
 
 1. **Curated Evaluation Dataset:**  
-   The current feed operates on 50 cached alert entries derived from 30 structured defence reports. Automated web-crawlers for behind-paywall or air-gapped military networks are intentionally decoupled in the hackathon demo to ensure 100% reproducible judge evaluation.
+   The current feed operates on 50 cached alert entries derived from 30 structured defence reports. Automated web-crawlers for behind-paywall or air-gapped military networks are intentionally decoupled in the hackathon demo to ensure reproducible judge evaluation.
 2. **Hybrid Scoring Heuristics:**  
    Threat scores (0–100) are computed using an auditable hybrid scoring function combining domain keywords, military asset involvement, civilian risk factors, and source corroboration multipliers. In full production, this would be augmented with an automated ML Bayesian probability model.
 3. **Public LLM Provider Rate Limiting:**  
@@ -162,7 +162,7 @@ GROQ_API_KEY=your_groq_api_key_here
 # Optional: OpenAI API Key
 OPENAI_API_KEY=your_openai_api_key_here
 ```
-*(Note: If no API keys are provided, Sentry Intel operates automatically via its deterministic zero-crash extractive engine).*
+*(Note: If no API keys are provided, Sentry Intel operates automatically via its deterministic local extractive engine).*
 
 ### 3. Generate / Update Summaries & Playbooks
 ```bash
