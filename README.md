@@ -30,20 +30,22 @@ Every intelligence dashboard answers *"What happened?"* Sentry Intel answers the
   > *⚠️ Guidance only — always follow your local authorities' instructions.*
 
 ### 2. 🔍 Ask Sentry — Context-Grounded RAG Q&A
-- Interactive natural-language interrogation engine across all cached intelligence alerts.
-- **Zero Hallucination Guarantee:** Employs keyword, entity, and location retrieval with recency boosting. Synthesizes concise answers strictly citing exact Alert IDs (`[alert-inc-...]`). If no corroborating data exists, it plainly states *"No matching alerts found"* rather than guessing.
-- Clickable citation tags open full tactical alert dossiers directly in the UI.
-- Built-in **AI Morning Brief** generator for command morning briefings.
+- Natural-language interrogation engine across all cached intelligence alerts (API backend `/api/ask` operational; UI integration in progress via Task SI-01).
+- **Zero Hallucination Guarantee:** Grounded synthesis strictly citing exact Alert IDs (`[alert-inc-...]`). If no corroborating data exists in the corpus, it plainly states *"No matching alerts found"* rather than guessing.
+- Citations map directly to alert dossiers.
+- Built-in **AI Morning Brief** generator for command morning briefings (active on dashboard).
 
 ### 3. ⚖️ Multi-Source Corroboration & "Why This Score" Justification
 - Clusters related wire reports into single incident dossiers (e.g., cross-border UAV incursions, regional grid cyber attacks, Gulf of Aden anti-piracy boardings).
 - Automatically calculates a transparent threat score (0–100) and severity rating (`LOW`, `MEDIUM`, `HIGH`, `CRITICAL`).
 - Emits an honest, auditable sentence explaining *why* the threat received its rating (e.g., *“HIGH because: cross-border airspace breach + combat scramble / tactical special forces deployment + corroborated by 3 independent sources.”*).
 
-### 4. ⚡ Triple-Redundant Zero-Crash Architecture
-- **Tier 1:** GroqCloud ultra-fast inference (`openai/gpt-oss-120b` at 500+ tokens/second).
-- **Tier 2:** OpenAI fallback (`gpt-4o-mini`).
-- **Tier 3:** Deterministic, offline-capable extractive NLP summarization & chronological timeline parser that guarantees zero-crash uptime even under complete network failure or API rate limits.
+### 4. ⚡ Multi-Provider Architecture & Zero-Crash Resilience
+- **Tier 1 (Wired):** GroqCloud ultra-fast inference (`openai/gpt-oss-120b` at 500+ tokens/second).
+- **Tier 2 (Wired):** OpenAI fallback (`gpt-4o-mini`).
+- **Tier 3 (Wired Fallback):** Deterministic, offline-capable extractive NLP summarization & chronological timeline parser that guarantees zero-crash uptime even under complete network failure or API rate limits.
+- **Provider Status Note:** Groq and OpenAI are the only wired LLM providers. Placeholders in `.env.example` for Gemini, Grok (xAI), or Anthropic have no active code paths in this release.
+- **Retrieval Engine & Pathway Status:** Intelligence retrieval currently operates via an in-memory keyword, entity, and location matching engine with recency boosting. Pathway streaming hybrid retrieval (TantivyBM25 + dense vectors, SI-29/30) is currently in progress as a sidecar; the keyword engine remains the automatic zero-downtime fallback.
 
 ---
 
@@ -51,8 +53,8 @@ Every intelligence dashboard answers *"What happened?"* Sentry Intel answers the
 
 ### 1. 📊 Demo Data & Evaluation Transparency
 > **Honesty Notice:**  
-> The 50 cached threat alerts in this repository represent a curated **evaluation and benchmarking dataset** created for hackathon demonstration and stress-testing. They represent realistic, illustrative defence and national security incidents — **not a live classified feed or real-time military network**.  
-> The Sentry Intel pipeline architecture is designed with modular ingest endpoints (`/api/alerts`, `/api/ask`) to support live wire ingestion from open-source news APIs and RSS feeds in production.
+> The 50 cached threat alerts in this repository represent a curated **evaluation and demo dataset** created for hackathon demonstration and stress-testing. They represent realistic, illustrative defence and national security incidents — **not a live classified feed or real-time military network**.  
+> The Sentry Intel pipeline architecture is designed with modular ingest endpoints (`/api/alerts`, `/api/ask`, `/api/ingest`) to support live wire ingestion from open-source news APIs and RSS feeds in production.
 
 ### 2. 🏷️ Confidence Badges
 Every alert derives a transparent confidence tier:
