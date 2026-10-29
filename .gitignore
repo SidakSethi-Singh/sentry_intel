@@ -36,3 +36,7 @@ next-env.d.ts
 # personal reference files
 PROJECT_PROGRESS_AND_HANDOVER.md
 
+
+# Local demo data
+/data/local-db.json
+/data/local-db.json.*.tmp

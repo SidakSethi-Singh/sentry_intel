@@ -7,6 +7,8 @@
 import * as fs from "fs";
 import * as path from "path";
 import type { Alert } from "./summarize.ts";
+import { useLocalStore } from "./supabase";
+import { listLocalAlerts } from "./local-db";
 
 export interface AskSentryResponse {
   question: string;
@@ -249,7 +251,7 @@ function synthesizeExtractive(retrievedAlerts: Alert[]): { answer: string; citat
  * Takes a user question, searches cached intelligence, synthesizes answer citing Alert IDs.
  */
 export async function askSentry(question: string, customAlerts?: Alert[]): Promise<AskSentryResponse> {
-  const alerts = customAlerts && customAlerts.length > 0 ? customAlerts : getCachedAlerts();
+  const alerts = customAlerts ?? (useLocalStore() ? listLocalAlerts() : getCachedAlerts());
 
   if (!question || question.trim().length === 0) {
     return {
@@ -318,7 +320,7 @@ export async function askSentry(question: string, customAlerts?: Alert[]): Promi
  * Turns the top critical & high alerts into an executive intelligence brief.
  */
 export async function generateMorningBrief(customAlerts?: Alert[]): Promise<MorningBriefResponse> {
-  const alerts = customAlerts && customAlerts.length > 0 ? customAlerts : getCachedAlerts();
+  const alerts = customAlerts ?? (useLocalStore() ? listLocalAlerts() : getCachedAlerts());
 
   // Sort by score descending (critical first)
   const topAlerts = [...alerts]

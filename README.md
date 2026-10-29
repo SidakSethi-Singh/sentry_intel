@@ -194,3 +194,7 @@ npm run build
 ---
 
 **Built with pride by Last Minute Legends for Zinnovatio 4.0.**
+
+### Local demo storage
+
+When neither Supabase URL nor service-role key is configured, the server uses a local JSON file at `data/local-db.json`, seeded from the bundled sample data on first use. The file is ignored by Git. Supplying both Supabase credentials selects Supabase; partial configuration is an error. Local storage is intended for a single local demo process: it is not a shared database, does not coordinate concurrent writers, and is unsuitable for serverless deployments or durable production storage. Google News RSS ingestion requires network access and may provide only headlines or snippets; sample data remains the offline fallback.

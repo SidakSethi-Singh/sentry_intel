@@ -443,43 +443,43 @@ export function calculateThreatAssessment(
   // Critical indicators (+25)
   if (combined.includes("airspace breach") || combined.includes("unmanned aerial vehicle") || combined.includes("drone crash")) {
     score += 25;
-    reasons.push("cross-border airspace breach");
+    reasons.push("airspace or drone indicator");
   } else if (combined.includes("cyber attack") || combined.includes("malware") || combined.includes("zero-day")) {
     score += 25;
-    reasons.push("critical infrastructure cyber exploit");
+    reasons.push("cyber incident indicator");
   } else if (combined.includes("pirate") || combined.includes("skiffs") || combined.includes("distress broadcast")) {
     score += 25;
-    reasons.push("active armed piracy in international shipping corridor");
+    reasons.push("maritime distress or piracy indicator");
   } else if (combined.includes("red alert") || combined.includes("cyclone") || combined.includes("storm surge")) {
     score += 25;
-    reasons.push("life-threatening coastal storm surge & cyclone intensification");
+    reasons.push("severe weather indicator");
   } else if (combined.includes("subterranean tunnel") || combined.includes("infiltration")) {
     score += 25;
-    reasons.push("nocturnal subterranean infiltration attempt");
+    reasons.push("tunnel or infiltration indicator");
   }
 
   // High response & confirmation factors (+15)
   if (combined.includes("drdo") || combined.includes("sukhoi") || combined.includes("scrambled") || combined.includes("marcos")) {
     score += 15;
-    reasons.push("combat scramble / tactical special forces deployment");
+    reasons.push("defence organization, aircraft, or deployment indicator");
   } else if (combined.includes("cert-in") || combined.includes("nciipc") || combined.includes("isolated")) {
     score += 15;
-    reasons.push("emergency CERT-In containment advisory");
+    reasons.push("cyber response indicator");
   } else if (combined.includes("evacuation") || combined.includes("ndrf")) {
     score += 15;
-    reasons.push("mass evacuation of civilian population (>180,000 residents)");
+    reasons.push("evacuation or disaster response indicator");
   } else if (combined.includes("corps commander") || combined.includes("disengagement")) {
     score += 15;
-    reasons.push("high-level bilateral corps commander standoff negotiations");
+    reasons.push("military talks or disengagement indicator");
   }
 
   // Multi-source corroboration factor
   if (sourceCount >= 3) {
     score += 12;
-    reasons.push(`corroborated by ${sourceCount} independent sources`);
+    reasons.push(`reported by ${sourceCount} sources`);
   } else if (sourceCount === 2) {
     score += 8;
-    reasons.push("corroborated by 2 independent sources");
+    reasons.push("reported by 2 sources");
   } else {
     reasons.push("single-source initial wire report");
   }
