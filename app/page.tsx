@@ -166,7 +166,7 @@ export default function HomePage() {
         <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
           <span style={{ fontSize: "0.8rem", color: "#10b981", display: "flex", alignItems: "center", gap: "5px" }}>
             <span style={{ width: "8px", height: "8px", background: "#10b981", borderRadius: "50%", display: "inline-block" }} />
-            Live Pipeline Active
+            Intelligence Dashboard
           </span>
           <button
             onClick={handleMorningBrief}

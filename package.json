@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "generate-summaries": "node --experimental-strip-types scripts/generate-summaries.ts",
-    "verify-faithfulness": "node --experimental-strip-types scripts/verify-faithfulness.ts"
+    "verify-faithfulness": "node --experimental-strip-types scripts/verify-faithfulness.ts",
+    "test:ingestion": "node --experimental-strip-types --test tests/ingestion-scoring.test.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

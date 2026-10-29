@@ -10,6 +10,7 @@ import {
   DatabaseError,
 } from "@/lib/supabase";
 import { createAlertFromArticle } from "@/lib/summarize";
+import { ingestArticles } from "@/lib/ingest";
 
 export const maxDuration = 120;
 
@@ -21,19 +22,9 @@ function getFallbackArticles(): Article[] {
 
 async function getArticlesToIngest(): Promise<{ articles: Article[]; source: "live" | "fallback" }> {
   try {
-    const ingestPath = path.resolve(process.cwd(), "lib/ingest.ts");
-    if (fs.existsSync(ingestPath)) {
-      const dynamicImport = new Function("modulePath", "return import(modulePath)");
-      const ingestMod = await (dynamicImport("@/lib/ingest") as Promise<Record<string, unknown>>).catch(() => null);
-      if (ingestMod) {
-        const fetchFn = ingestMod.ingestArticles || ingestMod.fetchLiveArticles || ingestMod.ingest;
-        if (typeof fetchFn === "function") {
-          const result = await fetchFn();
-          if (Array.isArray(result) && result.length > 0) {
-            return { articles: result as Article[], source: "live" };
-          }
-        }
-      }
+    const articles = await ingestArticles();
+    if (articles.length > 0) {
+      return { articles, source: "live" };
     }
   } catch {
   }
@@ -96,7 +87,7 @@ export async function POST() {
           text: article.text,
         });
 
-        await insertAlert(alertToInsert);
+        await insertAlert(alertToInsert, summaryAlert);
         processed++;
       } catch (err) {
         failed++;

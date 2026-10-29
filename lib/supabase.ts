@@ -1,3 +1,5 @@
+import * as local from "./local-db";
+import type { Alert as FullAlert } from "./summarize";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
 export interface Article {
@@ -42,6 +44,13 @@ export class DatabaseError extends Error {
   }
 }
 
+export function useLocalStore(): boolean {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
+  if (!!url !== !!key) throw new DatabaseError("Configure both Supabase URL and service-role key, or neither for local storage", "CONFIG_ERROR");
+  return !url;
+}
+
 let cachedClient: SupabaseClient | null = null;
 
 export function getSupabase(): SupabaseClient {
@@ -70,6 +79,7 @@ export function getSupabase(): SupabaseClient {
 }
 
 export async function listAlerts(): Promise<Alert[]> {
+  if (useLocalStore()) return local.listLocalAlerts() as unknown as Alert[];
   const supabase = getSupabase();
   const { data, error } = await supabase
     .from("alerts")
@@ -84,6 +94,7 @@ export async function listAlerts(): Promise<Alert[]> {
 }
 
 export async function getAlertById(id: string): Promise<Alert | null> {
+  if (useLocalStore()) return (local.listLocalAlerts().find(a => a.id === id) || null) as unknown as Alert | null;
   const supabase = getSupabase();
   const { data, error } = await supabase
     .from("alerts")
@@ -99,6 +110,12 @@ export async function getAlertById(id: string): Promise<Alert | null> {
 }
 
 export async function getAlertStats(): Promise<SeverityStats> {
+  if (useLocalStore()) {
+    const alerts = local.listLocalAlerts();
+    const stats: SeverityStats = { total: alerts.length, critical: 0, high: 0, medium: 0, low: 0 };
+    for (const a of alerts) stats[a.severity]++;
+    return stats;
+  }
   const supabase = getSupabase();
   const { data, error } = await supabase
     .from("alerts")
@@ -132,6 +149,7 @@ export async function getAlertStats(): Promise<SeverityStats> {
 }
 
 export async function articleExists(filter: { id?: string; url?: string }): Promise<boolean> {
+  if (useLocalStore()) return local.localArticleExists(filter);
   const supabase = getSupabase();
   let query = supabase.from("articles").select("id", { count: "exact", head: true });
 
@@ -152,6 +170,7 @@ export async function articleExists(filter: { id?: string; url?: string }): Prom
 }
 
 export async function alertExists(articleId: string): Promise<boolean> {
+  if (useLocalStore()) return local.localAlertExists(articleId);
   const supabase = getSupabase();
   const { count, error } = await supabase
     .from("alerts")
@@ -166,6 +185,7 @@ export async function alertExists(articleId: string): Promise<boolean> {
 }
 
 export async function upsertArticle(article: Article): Promise<Article> {
+  if (useLocalStore()) return local.saveLocalArticle(article);
   const supabase = getSupabase();
   const { data, error } = await supabase
     .from("articles")
@@ -190,7 +210,12 @@ export async function upsertArticle(article: Article): Promise<Article> {
   return data as Article;
 }
 
-export async function insertAlert(alert: Alert): Promise<Alert> {
+export async function insertAlert(alert: Alert, fullAlert?: FullAlert): Promise<Alert> {
+  if (useLocalStore()) {
+    if (!fullAlert) throw new DatabaseError("Full alert required for local storage", "INVALID_ALERT");
+    local.saveLocalAlert(fullAlert);
+    return alert;
+  }
   const supabase = getSupabase();
   const { data, error } = await supabase
     .from("alerts")
